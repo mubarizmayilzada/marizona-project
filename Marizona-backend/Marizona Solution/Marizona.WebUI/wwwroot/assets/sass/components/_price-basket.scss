@@ -1,0 +1,55 @@
+.price-basket{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .price{
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 36px;
+        color: $color-main-orange;
+    }
+    .main-price{
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 36px;
+        color: $color-main-orange;
+        display: none;
+    }
+    div{
+        .is-sale{
+            font-size: 17px;
+            color: rgb(128, 128, 128);
+            position: relative;
+            margin-right: 5px;
+            display: inline-block;
+            &::before{
+                content: "";
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                height: 1px;
+                background-color: rgb(128, 128, 128);
+            }
+        }
+    }
+    
+    .basket{
+        padding: 10px;
+        background-color: $color-main-orange;
+        border-radius: 8px;
+        text-align: center;
+        transition: all .5s ease;
+        &:hover{
+            background-color: $color-main-text-orange;
+            i{
+                color: white;
+            }
+        }
+        a{
+            color: $color-main-black;
+            i{
+                font-size: 13px;
+            }
+        }
+    }
+}

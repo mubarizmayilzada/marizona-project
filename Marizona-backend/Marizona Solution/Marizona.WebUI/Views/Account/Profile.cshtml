@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<section id="login">
+    <div class="container">
+        <section class="login">
+            <div class="login-wrapper">
+                <a asp-controller="home" asp-action="index"><img class="login-logo" src="~/uploads/icons/Marizona.png" alt=""></a>
+                <span>Log into Marizona</span>
+                <label for="login-email"></label>
+                <input type="text" id="login-email" placeholder="Enter your email">
+                <label for="login-password"></label>
+                <input type="password" id="login-password" placeholder="Enter your password">
+
+                <button class="btn-hard-sm" type="submit">Log in</button>
+                <a href="./account-register.html">Hesab Yarat</a>
+            </div>
+        </section>
+    </div>
+</section>

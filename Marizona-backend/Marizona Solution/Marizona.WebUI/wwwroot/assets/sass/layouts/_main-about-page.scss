@@ -1,0 +1,46 @@
+.about-page{
+    background-image: url(../../uploads/images/Shiny.svg);
+    background-position-y: center;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div{
+        text-align: center;
+    }
+    h1{
+        font-size: 52px;
+        line-height: 63px;
+        font-weight: 700;
+        color: $color-main-black;
+    }
+    &__sub-text{
+        font-size: 15px;
+        color: $color-main-black;
+        span{
+            font-size: 20px;
+            font-family: 'Norican', cursive;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px){
+    h1{
+        font-size: 45px !important;
+    }
+}
+@media screen and (max-width: 800px){
+    h1{
+        font-size: 40px !important;
+    }
+}
+@media screen and (max-width: 500px){
+    h1{
+        font-size: 35px !important;
+    }
+}
+@media screen and (max-width: 330px){
+    h1{
+        font-size: 30px !important;
+    }
+}

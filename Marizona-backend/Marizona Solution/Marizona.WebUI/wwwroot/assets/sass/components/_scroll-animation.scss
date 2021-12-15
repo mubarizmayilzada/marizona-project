@@ -1,0 +1,138 @@
+
+.first-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background-color: $color-main-black;
+    margin-top: 100px;
+    overflow: hidden;
+
+    .shape-1{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+    .shape-2{
+        position: absolute;
+        top: 0;
+        right: -50px;
+        z-index: 9;
+    }
+    .shape-3{
+        width: 600px;
+        position: absolute;
+        bottom: -250px;
+        right: -250px;
+        z-index: 9;
+    }
+    .shape-4{
+        position: absolute;
+        bottom: 0px;
+        right: 50px;
+        z-index: 8;
+    }
+    .shape-5{
+        position: absolute;
+        bottom: 100px;
+        right: 50px;
+        transform: rotate(220deg);
+        z-index: 8;
+    }
+    .section_1_bg{
+      margin-top: -250px;
+      left: 50%;
+    }
+    h2 {
+        font-family: 'Norican', cursive;
+        color: $color-white;
+        font-size: 40px;
+        font-weight: lighter;
+        padding: 130px 0px 0px 0px;
+        z-index: 9;
+        margin-top: -100px;
+        span{
+            font-family: 'Poppins', sans-serif;
+        }
+    } 
+  }
+  
+  .first-section .images-wrapper {
+    position: absolute;
+  }
+  
+  .ingredient-images {
+    position: absolute;
+    width: 400px;
+    left: calc(50% - 400px);
+    height: 530px;
+    top: 420px;
+  }
+
+
+  .section_1_01 {
+    position: absolute;
+    top: -220px;
+    right: 10px;
+  }
+  
+  .section_1_02 {
+    position: absolute;
+    top: -150px;
+    right: 130px;
+  }
+  
+  .section_1_03 {
+    position: absolute;
+    top: -130px;
+    right: 10px;
+  }
+  
+  .section_1_04 {
+    position: absolute;
+    top: -30px;
+    right: 120px;
+  }
+  
+  .section_1_05 {
+    position: absolute;
+    top: -5px;
+    right: 150px;
+  }
+  
+  .section_1_06 {
+    position: absolute;
+    top: -60px;
+    right: 210px;
+  }
+  
+  .section_1_07 {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+  
+  .section_1_08 {
+    position: absolute;
+    top: 90px;
+    right: 110px;
+  }
+  
+  .section_1_09 {
+    position: absolute;
+    top: 130px;
+    right: 10px;
+  }
+
+  @media screen and (max-width: 1438px){
+    .first-section{
+      display: none;
+    }
+    .scrollmagic-pin-spacer{
+      display: none;
+    }
+  }

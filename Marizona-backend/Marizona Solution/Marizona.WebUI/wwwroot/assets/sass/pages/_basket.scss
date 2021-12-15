@@ -1,0 +1,162 @@
+.basket-section{
+    margin: 50px 0px;
+    &__title{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 2px solid $color-main-orange;
+        margin-bottom: 50px;
+        &__product-count{
+            color: $color-main-black;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    &__body{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .basket-products{
+            width: 72%;
+            margin-right: 50px;
+            .basket-product{
+                width: 100%;
+                border: 1px solid $color-main-orange;
+                padding: 15px;
+                display: flex;
+                position: relative;
+                margin-bottom: 10px;
+                &__img{
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        background-color: orange;
+                    }
+                }
+                &__description{
+                    padding: 25px;
+                    &__title{
+                        color: $color-main-black;
+                        font-size: 24px;
+                        font-weight: 700;
+                        line-height: 34px;
+                        margin-bottom: 5px;
+                        &:hover{
+                            color: $color-main-orange;
+                        }
+                    }
+                    p{
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 27px;
+                        color: rgb(128, 128, 128);
+                    }
+                }
+                .basket-remove{
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    background-color: $color-main-orange;
+                    font-size: 25px;
+                    color: $color-main-black;
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    text-align: center;
+                    transition: all .5s ease;
+                    &:hover{
+                        background-color: $color-main-black;
+                        color: $color-main-orange;
+                    }
+                }
+            }
+        }
+
+        .basket-aside{
+            width: 25%;
+            .about-order{
+                width: 100%;
+                border: 1px solid rgb(220, 220, 220);
+                padding: 30px;
+                h2{
+                    font-size: 27px;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                }
+                .total-price{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                    span{
+                        font-size: 15px;
+                    }
+                }
+                .total-shipping{
+                    width: 100%;
+                    display: flex;
+                    margin-bottom: 15px;
+                    justify-content: space-between;
+                    span{
+                        font-size: 15px;
+                    }
+                }
+                p{
+                    font-size: 15px;
+                    color: rgb(128, 128, 128);
+                }
+                .order-price{
+                    display: block;
+                    color: $color-main-orange;
+                    border-top: 1px solid $color-main-orange;
+                    width: 100%;
+                    font-size: 25px;
+                    font-weight: 700;
+                    text-align: right;
+                    margin-top: 20px;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .basket-section{
+        &__body{
+            display: block;
+            
+            .basket-products{
+                width: 100%;
+            }
+        
+            .basket-aside{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .basket-section{
+        &__body{
+            .basket-products{
+                margin-bottom: 50px;
+                .basket-product{
+                    display: block;
+                    &__img{
+                        padding: 20px;
+                        img{
+                            padding: 40px;
+                            display: block;
+                        }
+                    }
+                }
+            }
+            margin-bottom: 100px;
+        }
+    }
+}

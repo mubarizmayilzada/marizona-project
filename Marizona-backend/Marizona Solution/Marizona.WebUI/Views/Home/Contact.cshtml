@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<section class="about-page">
+    <div>
+        <h1>Contact Us</h1>
+        <span class="about-page__sub-text"><span>" Marizona "</span> is the perfect place for Fast food</span>
+    </div>
+</section>
+
+
+
+<section class="contact-marizona">
+    <div class="container">
+        <div class="contact-us">
+            <div class="contact-us__header">
+                <h2>Call us or visit place</h2>
+                <p id="contact-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, dolor?</p>
+                <div class="row">
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </span>
+                            <span class="contact-detail__title">Phone:</span>
+                            <p>Lorem, ipsum.</p>
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span class="contact-detail__title">Phone:</span>
+                            <p>Lorem, ipsum.</p>
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="contact-detail__title">Phone:</span>
+                            <p>Lorem, ipsum.</p>
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-us__body">
+                <div class="contact-us__body__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.433374128522!2d49.8539949!3d40.3770867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1sen!2s!4v1637760852056!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="contact-us__body__form">
+                    <h2 id="contact-form-title">Send us a message</h2>
+                    <p id="contact-form-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+                    <form id="form">
+                        <div class="form-control" id="form-control-name">
+                            <label for="name"></label>
+                            <input id="name" type="text" placeholder="Your name">
+                            <small id="nameSmall">Name must be at least 3 characters</small>
+                        </div>
+                        <div class="form-control" id="form-control-email">
+                            <label for="email"></label>
+                            <input id="email" type="text" placeholder="Email">
+                            <small id="emailSmall">Email is not required</small>
+                        </div>
+                        <div class="form-control" id="form-control-subject">
+                            <label for="subject"></label>
+                            <input id="subject" type="text" placeholder="Subject">
+                            <small id="subjectSmall">Subject must be at least 5 characters</small>
+                        </div>
+
+                        <div class="form-control" id="form-control-comment">
+                            <textarea name="" id="textarea" cols="10" rows="10" placeholder="Comment"></textarea>
+                            <small id="commentSmall">Email is not required</small>
+                        </div>
+                        <button type="submit" class="btn-hard-md" id="submit">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section addjs{
+
+    <script src="~/assets/js/contact-form.js"></script>
+
+}
+
+
+

@@ -1,0 +1,11 @@
+.product-stars{
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+    
+    .rate-star{
+        color: rgb(229, 229, 229);
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+}

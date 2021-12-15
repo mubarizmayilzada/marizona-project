@@ -1,0 +1,68 @@
+.register{
+    height: 100vh;
+    width: 100%;
+
+    .register-wrapper{
+        background-color: white;
+        width: 522px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 40px 100px;
+        text-align: center;
+        border: 1px solid $color-main-orange;
+        box-shadow: 0px 0px 18px -2px rgb(255, 192, 34);
+        -webkit-box-shadow: 0px 0px 18px -2px rgba(255,194,34,1);
+        -moz-box-shadow: 0px 0px 18px -2px rgba(255,194,34,1);
+        border-radius: 5px;
+        span{
+            color: $color-main-black;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 22px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        input{
+            width: 320px;
+            display: block;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid $color-main-orange;
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: $color-main-orange;
+            &::placeholder{
+                color: rgb(125, 125, 125);
+                font-size: 14px;
+            }
+        }
+        button{
+            margin: 10px 0 20px 0;
+        }
+        a{
+            color: $color-main-black;
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            text-decoration: underline;
+            &:hover{
+                color: $color-main-orange;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 520px){
+    .register-wrapper{
+        width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        input{
+            width: 100% !important;
+        }
+    }
+}

@@ -1,0 +1,65 @@
+.category{
+    height: 162px;
+    background-color: $color-main-green;
+
+    .categories{
+        display: flex;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: transparent;
+
+        &-item{
+            a:hover{
+                color: $color-white;
+            }
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            position: relative;
+            align-items: center;
+            width: 161px;
+            height: 121px;
+            transition: background-color .5s ease;
+            &:hover{
+                background: $color-main-orange;
+            }
+            span{
+                width: 100px;
+                display: block;
+                font-size: 1.3rem;
+                font-weight: 700;
+                transition: color .5s ease;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            // #img-background{
+            //     width: 100px;
+            //     height: 100px;
+            //     background-image: url(../../uploads/images/star-svgrepo-com.svg);
+            //     // background-color: $color-main-orange;
+            //     border-radius: 10px;
+            //     position: absolute;
+            //     top: 50%;
+            //     left: 50%;
+            //     transform: translate(-50%, -50%);
+            // }
+            img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+                transform: translate(-50%, -50%);
+                width: 100px !important;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:375px){
+    .categories-item{
+        margin: 0 auto;
+    }
+}

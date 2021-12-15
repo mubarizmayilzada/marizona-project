@@ -1,0 +1,43 @@
+.pagination{
+    ul{
+        display: flex;
+        background-color: $color-white;
+        padding: 8px;
+        border-radius: 50px;
+
+        li{
+            color: #20b2aa;
+            line-height: 45px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+        li.numb{
+            border-radius: 50%;
+            height: 45px;
+            width: 45px;
+            margin: 0 3px;
+        }
+        li.dots{
+            font-size: 22px;
+            cursor: default;
+        }
+        li.libutton{
+            padding: 0 20px;
+        }
+        li.prev{
+            border-radius: 25px 5px 5px 25px;
+        }
+        li.next{
+            border-radius: 5px 25px 25px 5px;
+        }
+        li.active,
+        li.numb:hover,
+        li.libutton:hover{
+            color: #fff;
+            background-color: #20b2aa;
+        }
+    }
+}

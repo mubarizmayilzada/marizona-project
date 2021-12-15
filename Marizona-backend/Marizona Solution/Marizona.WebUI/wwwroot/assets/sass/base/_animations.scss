@@ -1,0 +1,30 @@
+@keyframes animateColor{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes animateFloatLeft{
+    0%,100%{
+        top: 30%;
+        left: 30%;
+    }
+    50%{
+        top: 70%;
+        right: 70%;
+    }
+}
+
+@keyframes animateFloatRight{
+    0%,100%{
+        top: 70%;
+        left: 70%;
+    }
+    50%{
+        top: 30%;
+        right: 30%;
+    }
+}

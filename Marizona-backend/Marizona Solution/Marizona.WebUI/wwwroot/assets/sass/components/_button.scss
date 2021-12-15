@@ -1,0 +1,33 @@
+
+.btn-hard-md{
+    width: 173px;
+    height: 53px;
+    border-radius: 8px;
+    border: none;
+    background-color: $color-main-orange;
+    color: $color-main-black;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all .3s ease;
+    &:hover{
+        background-color: $color-main-text-orange;
+        color: $color-white;
+    }
+}
+
+
+
+.btn-hard-sm{
+    width: 129px;
+    height: 39px;
+    color: $color-main-black;
+    background-color: $color-main-orange;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    transition: all .3s ease;
+    &:hover{
+        color: $color-white;
+    }
+}

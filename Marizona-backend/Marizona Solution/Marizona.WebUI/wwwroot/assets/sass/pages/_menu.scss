@@ -1,0 +1,378 @@
+.todays-menu{
+    margin-top: 50px;
+    .title-menu{
+        text-align: center;
+    }
+    h2{
+        font-size: 36px;
+        font-weight: 700;
+        color: $color-main-black;
+        margin-bottom: 40px;
+    }
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        cursor: pointer;
+        .button-select{
+            outline: none;
+            border: none;
+            border: 1px solid rgb(229, 229, 229);
+            border-radius: 28px;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 17px 40px;
+            border-radius: 28px;
+            color: $color-main-black;
+            background-color: transparent;
+            margin: 5px;
+            &:hover{
+                border: 1px solid $color-main-orange;
+            }
+            &:focus{
+                background-color: $color-main-orange;
+            }
+        }
+        .active{
+            border: 1px solid $color-main-orange;
+        }
+    }
+
+    .menu-cards{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .menu-card-wrap{
+            padding: 10px;
+            border: 1px solid rgb(229, 229, 229);
+            border-radius: 30px;
+            width: 615px;
+            margin-bottom: 30px;
+            .menu-card{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 30px;
+                background-color: #ffefc688;
+                // height: 226px;
+                position: relative;
+                .icon-wishlist{
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    i{
+                        font-size: 20px;
+                        color: rgb(200, 200, 200);
+                        transition: color .5s ease;
+                        &:hover{
+                            color: $color-main-black;
+                        }
+                    }
+                }
+                img{
+                    width: 200px;
+                    height: 200px;
+                }
+                &__body{
+                    padding: 30px 50px 30px 10px;
+                    a{
+                        span{
+                            font-size: 24px;
+                            font-weight: 700;
+                            line-height: 34px;
+                            color: $color-main-black;
+                            transition: all 0.5s ease;
+                            &:hover{
+                                color: $color-main-orange;
+                            }
+                        }
+                    }
+
+                    .short-description{
+                        font-size: 15px;
+                        line-height: 27px;
+                        color: rgb(128, 128, 128);
+                        overflow: hidden;
+                    }
+
+                    .basket{
+                        position: absolute;
+                        bottom: 15px;
+                        right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.new-taste{
+    display: flex;
+    margin: 100px 0px;
+    &__poster-order{
+        text-align: center;
+        width: 50%;
+        background-image: url(../../uploads/images/image4-h4.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        .poster-order-background-overlay{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.400);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h2{
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: $color-white;
+        }
+        p{
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 40px;
+            color: rgb(229, 229, 229);
+        }
+    }
+    &__menu{
+        width: 50%;
+        background-image: url(../../uploads/images/bg1-h4.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        .menu-background-overlay{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 44, 44, 0.05);
+            padding: 150px;
+        }
+        .product{
+            display: flex;
+            justify-content: space-between;
+            &__name{
+                font-size: 24px;
+                font-weight: 700;
+                color: $color-main-black;
+            }
+            &__price{
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 24px;
+                color: $color-main-orange;
+            }
+        }
+        .divide-elements{
+            border-top: 1px dashed rgb(140, 140, 140);
+            padding: 5px;
+        }
+        .content{
+            font-size: 15px;
+            line-height: 27px;
+            color: rgb(128, 128, 128);
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+.slogans{
+    display: flex;
+    justify-content: space-between;
+    .slogan{
+        display: flex;
+        width: 410px;
+        padding: 22px 30px;
+        border: 3px dashed rgb(229, 229, 229);
+        border-radius: 8px;
+        transition: border-color .5s ease;
+        &:hover{
+            border-color: $color-main-orange;
+        }
+        &__icon{
+            width: 70px;
+            height: 70px;
+            margin-right: 27px;
+            transition: all .5s ease;
+            &:hover{
+                width: 73px;
+                height: 73px;
+            }
+        }
+        &__title{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 22px;
+            color: $color-main-black;
+        }
+        &__description{
+            font-size: 14px;
+            line-height: 20px;
+            color: #999;
+
+        }
+    }
+}
+.slogan-wrap{
+    margin-bottom: 100px;
+}
+
+
+@media screen and (max-width: 1400px){
+    .menu-card-wrap{
+        width: 450px !important;
+        .menu-card{
+            img{
+                width: 150px !important;
+                height: 150px !important;
+            }
+            &__body{
+                a{
+                    span{
+                        font-size: 18px !important;
+                        line-height: 30px !important;
+                    }
+                }
+                .short-description{
+                    font-size: 12px !important;
+                }
+            }
+        }
+    }
+
+    .new-taste{
+        &__menu{
+            .menu-background-overlay{
+                padding: 100px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 992px){
+    .menu-card-wrap{
+        width: 100% !important;
+    }
+    .slogans{
+        .slogan{
+            &__title{
+                font-size: 18px !important;
+                line-height: 33px !important;
+            }
+            &__description{
+                line-height: 25px !important;
+            }
+        }
+    }
+
+    .new-taste{
+        &__poster-order{
+            h2{
+                font-size: 35px;
+            }
+        }
+        &__menu{
+            .menu-background-overlay{
+                padding: 80px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 880px){
+    .new-taste{
+        display: block !important;
+        &__poster-order{
+            width: 100% !important;
+            .poster-order-background-overlay{
+                padding: 80px;
+            }
+        }
+        &__menu{
+            width: 100% !important;
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .buttons{
+        .button-select{
+            padding: 10px 30px !important;
+            font-size: 11px !important;
+        }
+    }
+}
+@media screen and (max-width: 550px){
+    .todays-menu{
+        h2{
+            font-size: 23px;
+        }
+    }
+    .buttons{
+        .button-select{
+            padding: 8px 20px !important;
+            font-size: 10px !important;
+
+        }
+    }
+
+    .new-taste{
+        display: block !important;
+        &__poster-order{
+            width: 100% !important;
+            h2{
+                font-size: 22px;
+            }
+            p{
+                font-size: 13px;
+            }
+            button{
+                width: 150px;
+                height: 40px;
+                font-size: 12px;
+            }
+            .poster-order-background-overlay{
+                padding: 50px;
+            }
+        }
+        &__menu{
+            width: 100% !important;
+            .menu-background-overlay{
+                padding: 50px !important;
+            }
+            h2{
+                font-size: 18px !important;
+            }
+            p{
+                font-size: 11px !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 430px){
+    .todays-menu{
+        h2{
+            font-size: 21px;
+        }
+    }
+    .buttons{
+        display: block !important;
+    }
+    .menu-card-wrap{
+        .menu-card{
+            display: block !important;
+            text-align: center;
+            img{
+                margin: 0 auto !important;
+                width: 150px !important;
+                height: 150px !important;
+            }
+            &__body{
+                text-align: left;
+            }
+        }
+    }
+    
+}

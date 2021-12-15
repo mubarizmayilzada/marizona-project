@@ -1,0 +1,190 @@
+.contact-marizona{
+    margin: 100px 0;
+    span{
+        display: inline-block;
+    }
+    .contact-us{
+        &__header{
+            text-align: center;
+            h2{
+                font-size: 42px;
+                line-height: 35px;
+                font-weight: 700;
+                color: $color-main-black;
+                margin-bottom: 20px;
+            }
+            #contact-description{
+                font-size: 15px;
+                line-height: 27px;
+                color: rgb(128, 128, 128);
+                margin-bottom: 50px;
+            }
+            .contact-details{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 70px;
+                .contact-detail{
+                    .icon{
+                        padding: 0 15px;
+                        margin-bottom: 25px;
+                        display: block;
+                        i{
+                            font-size: 45px;
+                            color: $color-main-orange;
+                        }
+                    }
+                    &__title{
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 32px;
+                        color: $color-main-black;
+                        margin-bottom: 10px;
+                    }
+                    p{
+                        color: rgb(128, 128, 128);
+                        font-size: 16px;
+                        line-height: 29px;
+                    }
+                }
+            }
+        }
+
+        &__body{
+            display: flex;
+            border: 1px solid rgb(225, 225, 225);
+            border-radius: 8px;
+            &__map{
+                width: 50%;
+            }
+            &__form{
+                width: 50%;
+                padding: 50px 80px;
+                #contact-form-title{
+                    font-size: 42px;
+                    line-height: 35px;
+                    font-weight: 700;
+                    color: $color-main-black;
+                    margin-bottom: 20px;
+                }
+                #contact-form-description{
+                    font-size: 15px;
+                    line-height: 27px;
+                    color: rgb(128, 128, 128);
+                    margin-bottom: 50px;
+                }
+
+                #form{
+                    .form-control{
+                        border: none;
+                        padding: 0;
+                        margin: 0;
+                        margin-bottom: 15px;
+                        small{
+                            color: #e74c3c;
+                            font-size: 11px;
+                            margin-top: 5px;
+                            margin-left: 10px;
+                            display: none;
+                        }
+
+                    }
+                    .form-control.error{
+                        input{
+                        border: 1px solid red;
+                        }
+                        small{
+                            display: block !important;
+                        }
+                    }
+                    .form-control.success{
+                        input{
+                            border: 1px solid green;
+                            background: transparent !important;
+                        }
+                        small{
+                            display: none !important;
+                        }
+                    }
+
+                    label{
+                        display: block;
+                        margin: 0px;
+                        padding: 0px;
+                    }
+                    input,textarea{
+                        background: transparent;
+                        display: block;
+                        padding: 10px;
+                        border: 1px solid rgb(225, 225, 225);
+                        border-radius: 8px;
+                        outline: none;
+                        // margin-bottom: 15px;
+                        width: 460px;
+                        resize: none;
+                        font-size: 15px;
+                        color: rgb(153, 153, 153);
+                        &::placeholder{
+                            font-size: 14px;
+                            color: rgb(153, 153, 153);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and(max-width:1200px) {
+    .contact-marizona{
+        .contact-us{
+            &__body{
+                &__map{
+                    width: 30%;
+                }
+                &__form{
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
+@media screen and(max-width:991.5px) {
+    .contact-marizona{
+        .contact-us{
+            &__body{
+                border: none;
+                &__map{
+                    display: none;
+                }
+                &__form{
+                    width: 100%;
+                    padding: 0px;
+                }
+            }
+        }
+    }
+}
+@media screen and(max-width:500px){
+    .contact-marizona{
+        .contact-us{
+            &__body{
+                border: none;
+                &__map{
+                    display: none;
+                }
+                &__form{
+                    width: 100%;
+                    padding: 0px;
+                    #form{
+                        input{
+                            width: 300px;
+                        }
+                        textarea{
+                            width: 300px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

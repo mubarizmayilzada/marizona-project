@@ -1,0 +1,268 @@
+
+header{
+    position:sticky;
+    top: 0;
+    z-index: 9999;
+    nav{
+        height: 70px;
+        padding: 0 30px;
+        background-color: $color-main-black;
+        display: flex;
+        color: $color-white;
+        justify-content: space-between !important;
+
+            .burger-menu{
+                position: relative;
+                padding-top: 10px;
+                margin-top: 25px;
+                margin-left: 17px;
+                border: none;
+                appearance: none;
+                outline: none;
+                display: none;
+                &:checked ~ .header-nav-menu{                    
+                    width: 280px;
+                    li{
+                        a{
+                            transition: all 1.3s ease;
+                            display: inline-block;
+                            font-size: 1.5rem;
+                        }
+                    
+                        
+                    }
+                }
+
+            &::before {
+                content: "";
+                background: url(../../uploads/icons/burger.png) no-repeat;
+                background-size: 70px 70px;
+                background-position: -10px;
+                position: absolute;
+                top: -15px;
+                left: -10px;
+                width: 50px;
+                height: 50px;
+            }
+        
+        }
+
+            
+        .telephone{
+            display: none;
+            img{
+                width: 40px;
+                position: relative;
+                top: 18%;
+                right: 7px;
+            }
+        }
+
+
+        
+        .header-nav-menu{
+            height: 345px;
+            background-color: $color-main-black;
+            width: 250px;
+            margin-top: 70px;
+            z-index: 99;
+            position: absolute;
+            left: 0;
+            width: 0px;
+            display: none;
+            transition: width 0.3s ease;
+
+        
+            li{
+                transition: background-color 1s ease;
+                a{
+                    display: inline-block;
+                    padding: 1.6rem;
+                    font-size: 0rem;
+                    font-weight: 700;
+                    line-height: 5px;
+                    display: none;
+                    transition: all 1.3s ease;
+                    &:hover{
+                        color: $color-white
+                    }
+                }
+
+                &:hover{
+                    background-color: $color-main-orange;
+                }
+            }
+        }
+
+        .burger-menu-logo{
+            display: none;
+        }
+
+        .nav-wrap{
+            display: flex;
+            justify-content: space-between;
+
+
+        .navbar-wrapper{
+            display: flex;
+
+            .logo-marizona{
+                width: 180px;
+                margin-right: 1rem;
+                padding: 2rem;
+            }
+            .logo-m{
+                width: 80px;
+                margin-right: 1rem;
+                padding: 2rem;
+                display: none;
+            }
+            .header-nav{
+                display: flex;
+                text-align: center; 
+                justify-content: center; 
+                align-items: center;
+
+                li{
+                    a{
+                        padding: 1.6rem;
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        transition: color .5s ease;
+
+                        &:hover,
+                        &:focus{
+                            color: $color-main-orange;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-right-wrap{
+            .tel{
+                display: none;
+                width: 4rem;
+                height: 4rem;
+                margin-right: -50px;
+            }
+            display: flex;
+            .about-delivery{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .delivery-icon{
+                    img{
+                        width: 5rem;
+                        color: red;
+                        margin-right: 1.5rem;
+                    }
+                }
+                .delivery-text{
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                }
+                .delivery-number{
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                    color: $color-main-orange;
+                    margin-right: 1.5rem;
+                    white-space: nowrap;
+                }
+            }
+
+            .personal-things{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .other-site{
+                    border: none;
+                    position: relative;
+                    a{
+                        img{
+                            position: absolute;
+                            top: 15px;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            width: 30px;
+                        }
+                    }
+                }
+                li{
+                    padding: .5rem;
+                    margin: .6rem;
+                    width: 4.3rem;
+                    height: 4.3rem;
+                    border-radius: 50%;
+                    border:  1px solid white;
+                    transition: background-color .5s ease;
+                    &:hover{
+                        background-color: $color-main-orange;
+                    }
+                    a{
+                        display: flex;
+                        align-items: center;
+                        justify-items: center;
+                        img{
+                            width: 1.7rem;
+                            margin: .7rem auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    }
+}
+
+@media screen and (max-width: 1210px){
+    .about-delivery{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 991.5px){
+    .nav-wrap{
+        justify-content: center !important;
+    }
+    .personal-things{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .header-nav{
+            display: none !important;
+    }
+    .burger-menu{
+            display: block !important;
+    }    
+    .header-nav-menu{
+        display: block !important;
+    }
+    .telephone{
+        display: block !important;
+    }
+    .nav-wrap{
+        position: relative;
+        right: -25px;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .logo-marizona{
+        display: none !important;
+    }
+    .logo-m{
+            display: block !important;
+    }
+
+}
+
+
+
+
+  
+
+  
+  
