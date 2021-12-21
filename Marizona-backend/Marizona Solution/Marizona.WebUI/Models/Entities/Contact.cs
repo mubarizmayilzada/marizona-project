@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Marizona.WebUI.Models.Entities
 {
-    public class Contact
+    public class Contact :BaseEntity
     {
         [Required]
         public string Name { get; set; }

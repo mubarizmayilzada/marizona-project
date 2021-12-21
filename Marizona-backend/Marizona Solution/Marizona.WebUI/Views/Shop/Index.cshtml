@@ -1,4 +1,4 @@
-﻿
+﻿@model ShopFilterCategoriesViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,422 +15,35 @@
         <div class="shop-wrapper">
             <div class="product-items-aside">
                 <div class="cards">
-                    <div data-category="hot-drink" class="card card-1">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/54.1.png" alt="">
-                            </a>
-                            <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Water Bottle</a>
-                            <div class="product-mini-description">Investing in a reusable water bottle that you can refill throughout the day...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price">$10.18</span>
-                                    <span class="price">$12.00</span>
+                    @foreach (var item in Model.Products)
+                    {
+                        <div data-category="@item.Category.Name.ToLower()" class="card card-1">
+                            <div class="image-wrapper">
+                                <a href="" class="image">
+                                    <img src="~/uploads/images/@item.ImagePath" alt="">
+                                </a>
+                                <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
+                            </div>
+                            <div class="product-caption">
+                                <ul class="product-stars">
+                                    <li class="rate-star"><i class="far fa-star"></i></li>
+                                    <li class="rate-star"><i class="far fa-star"></i></li>
+                                    <li class="rate-star"><i class="far fa-star"></i></li>
+                                    <li class="rate-star"><i class="far fa-star"></i></li>
+                                    <li class="rate-star"><i class="far fa-star"></i></li>
+                                </ul>
+                                <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id" class="product-title">@item.Title</a>
+                                <div class="product-mini-description">@item.ShortDescription</div>
+                                <div class="price-basket">
+                                    <div>
+                                        <span class="main-price">$10.18</span>
+                                        <span class="price">$12.00</span>
+                                    </div>
+                                    <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
                                 </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
                             </div>
                         </div>
-                    </div>
-                    <div data-category="pizza" class="card card-2">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/53-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Vegge Lover</a>
-                            <div class="product-mini-description">Extra-virgin olive oil, garlic, mozzarella cheese, onions, mushrooms, green...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$14.90</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="cold-drink" class="card card-3">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/52-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Tropicana Juice</a>
-                            <div class="product-mini-description">View great tasting Tropicana Orange Juice and Juice Drink Products...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$11.11</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class=" card card-4">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/51-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Trio Cheese</a>
-                            <div class="product-mini-description">Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives and...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$16.93</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="hot-drink" class="card card-1">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/54.1.png" alt="">
-                            </a>
-                            <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Water Bottle</a>
-                            <div class="product-mini-description">Investing in a reusable water bottle that you can refill throughout the day...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price">$10.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class="card card-2">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/53-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Vegge Lover</a>
-                            <div class="product-mini-description">Extra-virgin olive oil, garlic, mozzarella cheese, onions, mushrooms, green...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$14.90</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="cold-drink" class="card card-3">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/52-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Tropicana Juice</a>
-                            <div class="product-mini-description">View great tasting Tropicana Orange Juice and Juice Drink Products...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$11.11</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class=" card card-4">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/51-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Trio Cheese</a>
-                            <div class="product-mini-description">Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives and...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$16.93</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="hot-drink" class="card card-1">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/54.1.png" alt="">
-                            </a>
-                            <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Water Bottle</a>
-                            <div class="product-mini-description">Investing in a reusable water bottle that you can refill throughout the day...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price">$10.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class="card card-2">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/53-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Vegge Lover</a>
-                            <div class="product-mini-description">Extra-virgin olive oil, garlic, mozzarella cheese, onions, mushrooms, green...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$14.90</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="cold-drink" class="card card-3">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/52-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Tropicana Juice</a>
-                            <div class="product-mini-description">View great tasting Tropicana Orange Juice and Juice Drink Products...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$11.11</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class=" card card-4">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/51-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Trio Cheese</a>
-                            <div class="product-mini-description">Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives and...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$16.93</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="hot-drink" class="card card-1">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/54.1.png" alt="">
-                            </a>
-                            <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Water Bottle</a>
-                            <div class="product-mini-description">Investing in a reusable water bottle that you can refill throughout the day...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price">$10.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class="card card-2">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/53-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Vegge Lover</a>
-                            <div class="product-mini-description">Extra-virgin olive oil, garlic, mozzarella cheese, onions, mushrooms, green...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$14.90</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="cold-drink" class="card card-3">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/52-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Tropicana Juice</a>
-                            <div class="product-mini-description">View great tasting Tropicana Orange Juice and Juice Drink Products...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price"></span>
-                                    <span class="price">$11.11</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-category="pizza" class=" card card-4">
-                        <div class="image-wrapper">
-                            <a href="" class="image">
-                                <img src="~/uploads/images/51-1.png" alt="">
-                            </a>
-                            <span class="icon"><i class="fas fa-heart"></i></span>
-                        </div>
-                        <div class="product-caption">
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <a asp-controller="shop" asp-action="details" class="product-title">Trio Cheese</a>
-                            <div class="product-mini-description">Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives and...</div>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$16.93</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
+                    }
 
                 </div>
             </div>
@@ -439,78 +52,24 @@
                     <span class="category-title">Categories</span>
                     <div class="categories__body">
                         <ul class="categories__body__items filter-shop">
-                            <li data-filter="burger" class="categories__body__items__item acti">
-                                <a href="#" class="category-title-sub-touch">
-                                    <div class="item-overview">
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li data-filter="@item.Name.ToLower()" class="categories__body__items__item acti">
+                                    <a href="#" class="category-title-sub-touch">
+                                        <div class="item-overview">
 
-                                        <img src="~/uploads/images/burger-aside.png" alt="">
+                                            <img src="~/uploads/images/burger-aside.png" alt="">
 
-                                        <span class="category-title-sub">
-                                            Burgers
-                                        </span>
-                                    </div>
-                                </a>
-                                <span class="item-count">
-                                    (18)
-                                </span>
-                            </li>
-                            <li data-filter="cold-drink" class="categories__body__items__item">
-                                <a href="#" class="category-title-sub-touch">
-                                    <div class="item-overview">
-
-                                        <img src="~/uploads/images/cocktail-aside.png" alt="">
-
-                                        <span class="category-title-sub">
-                                            Cold Drinks
-                                        </span>
-                                    </div>
-                                </a>
-                                <span class="item-count">
-                                    (9)
-                                </span>
-                            </li>
-                            <li data-filter="hot-drink" class="categories__body__items__item">
-                                <a href="#" class="category-title-sub-touch">
-                                    <div class="item-overview">
-
-                                        <img src="~/uploads/images/coffee-cup-aside.png" alt="">
-                                        <span class="category-title-sub">
-                                            Hot Drinks
-                                        </span>
-                                    </div>
-                                </a>
-                                <span class="item-count">
-                                    (33)
-                                </span>
-                            </li>
-                            <li data-filter="pasta" class="categories__body__items__item">
-                                <a href="#" class="category-title-sub-touch">
-                                    <div class="item-overview">
-
-                                        <img src="~/uploads/images/french-fries-aside.png" alt="">
-                                        <span class="category-title-sub">
-                                            Pasta
-                                        </span>
-                                    </div>
-                                </a>
-                                <span class="item-count">
-                                    (12)
-                                </span>
-                            </li>
-                            <li data-filter="pizza" class="categories__body__items__item">
-                                <a href="#" class="category-title-sub-touch">
-                                    <div class="item-overview">
-
-                                        <img src="~/uploads/images/pizza-aside.png" alt="">
-                                        <span class="category-title-sub">
-                                            Pizza
-                                        </span>
-                                    </div>
-                                </a>
-                                <span class="item-count">
-                                    (20)
-                                </span>
-                            </li>
+                                            <span class="category-title-sub">
+                                                @item.Name
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <span class="item-count">
+                                        (18)
+                                    </span>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>

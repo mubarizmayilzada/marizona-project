@@ -1,3 +1,4 @@
+using Marizona.WebUI.Models.DataContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +16,7 @@ namespace Marizona.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<MarizonaDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

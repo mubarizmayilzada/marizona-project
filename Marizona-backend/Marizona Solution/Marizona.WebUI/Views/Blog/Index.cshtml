@@ -1,4 +1,5 @@
-﻿
+﻿@model BlogListViewModel
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -17,90 +18,39 @@
     <div class="container">
         <div class="blog">
             <div class="blog-posts">
-                <div class="blog-post">
-                    <div class="blog-post__img">
-                        <img src="~/uploads/images/shaafi-ali-I0IXBZDEAHo-unsplash.jpg" alt="blog-img">
-                        <div></div>
-                    </div>
-                    <div class="blog-post__body">
-                        <span class="blog-post__body__category">category</span>
-                        <span class="blog-post__body__slash">/</span>
-                        <span class="blog-post__body__time">07.34.2021</span>
-                        <h3 class="blog-post__body__title">
-                            <a href="#">
-                                10 Reasons To Do A Digital Detox Challenge
-                            </a>
-                        </h3>
-                        <p class="blog-post__body__short-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Voluptates eligendi laudantium culpa veritatis explicabo, quisquam repellat deleniti
-                            error dolorum numquam praesentium, minus tempora, enim magni. Laudantium, a. Sequi, cum tempore.
-                        </p>
-                        <div class="blog-post__body__button">
-                            <a href="#">
-                                <button class="btn-hard-md">
-                                    READ MORE
-                                </button>
-                            </a>
+                @foreach (var item in Model.Blogs)
+                {
+                    <div class="blog-post">
+                        <div class="blog-post__img">
+                            <img src="~/uploads/images/@item.ImagePath" alt="blog-img">
+                            <div></div>
+                        </div>
+                        <div class="blog-post__body">
+                            <span class="blog-post__body__category">@item.BlogTag.Name</span>
+                            <span class="blog-post__body__slash">/</span>
+                            <span class="blog-post__body__time">@item.CreatedDate.ToString("dd : MM : yyyy")</span>
+                            <h3 class="blog-post__body__title">
+                                <a asp-controller="blog" asp-action="details">
+                                    @item.Title
+                                </a>
+                            </h3>
+                            <p class="blog-post__body__short-description">
+                                @item.ShortDescription
+                            </p>
+                            <div class="blog-post__body__button">
+                                <a asp-controller="blog" asp-action="details">
+                                    <button class="btn-hard-md">
+                                        READ MORE
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="blog-post">
-                    <div class="blog-post__img">
-                        <img src="~/uploads/images/jonathan-borba-8l8Yl2ruUsg-unsplash.jpg" alt="blog-img">
-                        <div></div>
-                    </div>
-                    <div class="blog-post__body">
-                        <span class="blog-post__body__category">category</span>
-                        <span class="blog-post__body__slash">/</span>
-                        <span class="blog-post__body__time">07.34.2021</span>
-                        <h3 class="blog-post__body__title">
-                            <a href="#">
-                                10 Reasons To Do A Digital Detox Challenge
-                            </a>
-                        </h3>
-                        <p class="blog-post__body__short-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Voluptates eligendi laudantium culpa veritatis explicabo, quisquam repellat deleniti
-                            error dolorum numquam praesentium, minus tempora, enim magni. Laudantium, a. Sequi, cum tempore.
-                        </p>
-                        <div class="blog-post__body__button">
-                            <a href="#">
-                                <button class="btn-hard-md">
-                                    READ MORE
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <div class="blog-post__img">
-                        <img src="~/uploads/images/paula-vermeulen-URjZkhqsuBk-unsplash.jpg" alt="blog-img">
-                    </div>
-                    <div class="blog-post__body">
-                        <span class="blog-post__body__category">category</span>
-                        <span class="blog-post__body__slash">/</span>
-                        <span class="blog-post__body__time">07.34.2021</span>
-                        <h3 class="blog-post__body__title">
-                            <a href="#">
-                                10 Reasons To Do A Digital Detox Challenge
-                            </a>
-                        </h3>
-                        <p class="blog-post__body__short-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Voluptates eligendi laudantium culpa veritatis explicabo, quisquam repellat deleniti
-                            error dolorum numquam praesentium, minus tempora, enim magni. Laudantium, a. Sequi, cum tempore.
-                        </p>
-                        <div class="blog-post__body__button">
-                            <a href="#">
-                                <button class="btn-hard-md">
-                                    READ MORE
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                }
+
             </div>
+
+
             <div class="right-aside">
                 <div class="categories">
                     <span class="category-title">Categories</span>
@@ -186,60 +136,13 @@
                 <div class="category-tags">
                     <span class="category-title">Categories</span>
 
-                    <a href="#">
-                        beer
-                    </a>
-                    <a href="#">
-                        delicious
-                    </a>
-                    <a href="#">
-                        burgers
-                    </a>
-                    <a href="#">
-                        fast food
-                    </a>
-                    <a href="#">
-                        meat
-                    </a>
-                    <a href="#">
-                        pizza
-                    </a>
-                    <a href="#">
-                        drink
-                    </a>
-                </div>
-
-
-                <div class="recent-posts">
-                    <span class="category-title">Recent post</span>
-
-                    <div class="recent-post">
-                        <img src="~/uploads/images/shaafi-ali-I0IXBZDEAHo-unsplash.jpg" alt="">
-                        <div class="recent-post__description">
-                            <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                            <span class="time">
-                                August 31, 2020
-                            </span>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <img src="~/uploads/images/jonathan-borba-8l8Yl2ruUsg-unsplash.jpg" alt="">
-                        <div class="recent-post__description">
-                            <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                            <span class="time">
-                                August 31, 2020
-                            </span>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <img src="~/uploads/images/paula-vermeulen-URjZkhqsuBk-unsplash.jpg" alt="">
-                        <div class="recent-post__description">
-                            <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                            <span class="time">
-                                August 31, 2020
-                            </span>
-                        </div>
-                    </div>
+                    @{foreach (var item in Model.BlogTags)
+                        {
+                            <a href="#">
+                                @item.Name
+                            </a>
+                        }
+                      }
                 </div>
 
                 <div class="blog-ad">

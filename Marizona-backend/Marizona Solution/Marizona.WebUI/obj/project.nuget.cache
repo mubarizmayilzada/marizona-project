@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ScAXm5vJcHRZUzaBj3LgJFq7G+QaPrpGEXGNuagJ8JF8F/jop8nDQP6ZXK+D8mUu0mWJIGTIrMOQ18skvH1LnA==",
+  "dgSpecHash": "YGspXdHCCVrJvhmwkvvlnG8pOWheulPDwoRydI+4fEkS1edZUoDgNiyMrXy8ox0Ai4mKzZXXImszmleoH4MAog==",
   "success": true,
-  "projectFilePath": "E:\\P317\\Final-Project\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
+  "projectFilePath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

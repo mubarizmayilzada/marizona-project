@@ -1,4 +1,4 @@
-﻿
+﻿@model Product
 @{
     ViewData["Title"] = "Details";
 }
@@ -19,12 +19,12 @@
         <div class="product-detail-wrapper">
             <div class="product-images">
                 <div class="product-main-image">
-                    <img src="~/uploads/images/25-1-600x600.png" alt="">
+                    <img src="~/uploads/images/@Model.ImagePath" alt="">
                 </div>
             </div>
             <div class="product-description">
-                <h1 class="product-description__title">Apricot Chicken</h1>
-                <p class="product-description__sub-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, culpa doloremque? Vel nobis nulla error?</p>
+                <h1 class="product-description__title">@Model.Title</h1>
+                <p class="product-description__sub-description">@Model.ShortDescription</p>
                 <div class="price-basket" id="product-details-price-basket">
                     <div>
                         <span class="main-price is-sale">$18.18</span>
@@ -33,18 +33,14 @@
                     <span class="basket" id="product-details-basket"><a href="#"><i class="fas fa-shopping-basket"></i> Add to Basket</a></span>
                 </div>
                 <ul>
-                    <li class="product-sku-code">SKU : <span>01221</span></li>
-                    <li class="product-category">Category : <span>Pizza</span> </li>
-                    <li class="-product-tag">Tags : <span>Hot</span> </li>
+                    <li class="product-sku-code">BarCode : <span>@Model.BarCode</span></li>
+                    <li class="product-category">Category : <span>@Model.Category.Name</span> </li>
+                    <li class="-product-tag">Size : <span>@Model.Size.SizeTitle</span> </li>
                 </ul>
                 <h5>Guaranteed Safe Checkout <img src="~/uploads/icons/trust-symbols.png" alt=""></h5>
-                <ul class="product-sub-images">
-                    <li class="product-sub-image"><img src="~/uploads/images/27-1-600x600.png" alt=""></li>
-                    <li class="product-sub-image"><img src="~/uploads/images/3-1-600x600.png" alt=""></li>
-                </ul>
             </div>
         </div>
-        <p class="big-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium error veniam quisquam, rerum saepe aliquam necessitatibus odit quo unde porro quia voluptas dicta, consequatur sequi blanditiis officia magni, animi id. Fugiat, error itaque totam deserunt velit nemo vel doloribus unde minima quis non, ratione delectus sed. Tempore corrupti maxime fugit!</p>
+        <p class="big-description">@Model.Description</p>
         <p class="ingridients"> <span>Ingridients : </span> Tomato, Salt, Mushroom, Papper, peperonni </p>
     </div>
 </section>
