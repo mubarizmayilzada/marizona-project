@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FAQ>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section class="about-page">
+    <div>
+        <h1>FAQ</h1>
+        <span class="about-page__sub-text"><span>" Marizona "</span> is the perfect place for Fast food</span>
+    </div>
+</section>
+
+
+
+<section class="faqs">
+
+    @foreach (var item in Model)
+    {
+        <div class="faq">
+            <div class="question">
+                <h3>@item.Question</h3>
+                <i class="fas fa-chevron-down click-rotate"></i>
+            </div>
+            <div class="answer">
+                <p>@item.Answer</p>
+            </div>
+        </div>
+    }
+</section>

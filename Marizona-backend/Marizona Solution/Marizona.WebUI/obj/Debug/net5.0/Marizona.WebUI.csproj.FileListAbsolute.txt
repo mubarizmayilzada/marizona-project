@@ -298,3 +298,4 @@ E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Soluti
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.Views.pdb
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.csproj.CopyComplete
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.genruntimeconfig.cache
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\FAQs\Index.cshtml.g.cs
