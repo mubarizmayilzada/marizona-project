@@ -29,6 +29,7 @@ namespace Marizona.WebUI.Controllers
                 .Take(rnd.Next(4, products))
                 .ToList();
             vm.RecentProducts = db.Products.OrderByDescending(x => x.CreatedDate).Take(4).ToList();
+            vm.Categories = db.Categories.ToList();
             return View(vm);
         }
     }

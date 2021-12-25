@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Chef>
+
 @{
     ViewData["Title"] = "AboutUs";
 }
@@ -126,30 +127,36 @@
 <section class="chefs">
     <div class="container">
         <div class="team-cards">
-            <div class="team-card">
-                <div class="img-box">
-                    <img src="~/uploads/images/box-team-6-1.jpg" alt="">
-                    <span class="rank">
-                        chef
-                    </span>
-                </div>
-                <div class="info">
-                    <h2>
-                        William Shekspire
-                    </h2>
-                    <p class="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus harum totam voluptas iusto laboriosam animi?
-                    </p>
-                    <div class="personal-social-links">
-                        <ul>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fab fa-github"></i></a></li>
-                        </ul>
+
+            @foreach (var item in Model)
+            {
+                <div class="team-card">
+                    <div class="img-box">
+                        <img src="~/uploads/images/@item.ImagePath" alt="">
+                        <span class="rank">
+                            @item.PositionChef.Name
+                        </span>
+                    </div>
+                    <div class="info">
+                        <h2>
+                            @item.Name
+                        </h2>
+                        <p class="description">
+                            @item.aboutChef
+                        </p>
+                        <div class="personal-social-links">
+                            <ul>
+                                <li><a href="@item.SocialMedia.InstagramUrl"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="@item.SocialMedia.FacebookUrl"><i class="fab fa-facebook-square"></i></a></li>
+                                <li><a href="@item.SocialMedia.LinkedinUrl"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="team-card">
+            }
+
+
+            @*<div class="team-card">
                 <div class="img-box">
                     <img src="~/uploads/images/box-team-1-2.jpg" alt="">
                     <span class="rank">
@@ -240,7 +247,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </section>

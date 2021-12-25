@@ -2,9 +2,7 @@
 @{
     ViewData["Title"] = "Details";
 }
-@section addcss{
-    <link rel="stylesheet" href="~/assets/css/style.css">
-}
+
 
 <section class="about-page">
     <div>
@@ -27,8 +25,12 @@
                 <p class="product-description__sub-description">@Model.ShortDescription</p>
                 <div class="price-basket" id="product-details-price-basket">
                     <div>
-                        <span class="main-price is-sale">$18.18</span>
-                        <span class="price">$12.00</span>
+                        <span class="main-price @(Model.IsSalePrice != null ? "is-sale" : "")">
+                            $@Model.Price
+                        </span>
+                        <span class="price @(Model.IsSalePrice == null ? "is-sale-none" : "")">
+                            $@Model.IsSalePrice
+                        </span>
                     </div>
                     <span class="basket" id="product-details-basket"><a href="#"><i class="fas fa-shopping-basket"></i> Add to Basket</a></span>
                 </div>
@@ -44,3 +46,24 @@
         <p class="ingridients"> <span>Ingridients : </span> Tomato, Salt, Mushroom, Papper, peperonni </p>
     </div>
 </section>
+
+
+
+@section addcss{
+    <style>
+        .main-price {
+            display: block !important;
+            margin-right: 20px !important;
+        }
+
+        .is-sale-none {
+            display: none !important;
+        }
+
+        .price-basket > div {
+            white-space: nowrap;
+            width: 100%;
+            display: flex;
+        }
+    </style>
+}

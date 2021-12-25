@@ -15,6 +15,8 @@ namespace Marizona.WebUI.Models.Entities
         public int SizeId { get; set; }
         public Size Size { get; set; }
         public int CategoryId { get; set; }
+        public double Price { get; set; }
+        public double? IsSalePrice { get; set; }
         public Category Category { get; set; }
         public virtual ICollection<ProductIngredient> Ingridients { get; set; }
         

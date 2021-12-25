@@ -4,14 +4,16 @@ using Marizona.WebUI.Models.DataContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Marizona.WebUI.Migrations
 {
     [DbContext(typeof(MarizonaDbContext))]
-    partial class MarizonaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211225183636_product-price-try")]
+    partial class productpricetry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,49 +117,6 @@ namespace Marizona.WebUI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("Marizona.WebUI.Models.Entities.Chef", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CreatedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PositionChefId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SocialMediaId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("aboutChef")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PositionChefId");
-
-                    b.HasIndex("SocialMediaId");
-
-                    b.ToTable("Chefs");
                 });
 
             modelBuilder.Entity("Marizona.WebUI.Models.Entities.Contact", b =>
@@ -271,33 +230,6 @@ namespace Marizona.WebUI.Migrations
                     b.ToTable("Ingridients");
                 });
 
-            modelBuilder.Entity("Marizona.WebUI.Models.Entities.PositionChef", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CreatedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PositionChefs");
-                });
-
             modelBuilder.Entity("Marizona.WebUI.Models.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -395,39 +327,6 @@ namespace Marizona.WebUI.Migrations
                     b.ToTable("Sizes");
                 });
 
-            modelBuilder.Entity("Marizona.WebUI.Models.Entities.SocialMedia", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CreatedByUserId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FacebookUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("InstagramUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LinkedinUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SocialMedias");
-                });
-
             modelBuilder.Entity("Marizona.WebUI.Models.Entities.Blog", b =>
                 {
                     b.HasOne("Marizona.WebUI.Models.Entities.BlogTag", "BlogTag")
@@ -437,25 +336,6 @@ namespace Marizona.WebUI.Migrations
                         .IsRequired();
 
                     b.Navigation("BlogTag");
-                });
-
-            modelBuilder.Entity("Marizona.WebUI.Models.Entities.Chef", b =>
-                {
-                    b.HasOne("Marizona.WebUI.Models.Entities.PositionChef", "PositionChef")
-                        .WithMany()
-                        .HasForeignKey("PositionChefId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Marizona.WebUI.Models.Entities.SocialMedia", "SocialMedia")
-                        .WithMany()
-                        .HasForeignKey("SocialMediaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PositionChef");
-
-                    b.Navigation("SocialMedia");
                 });
 
             modelBuilder.Entity("Marizona.WebUI.Models.Entities.Product", b =>

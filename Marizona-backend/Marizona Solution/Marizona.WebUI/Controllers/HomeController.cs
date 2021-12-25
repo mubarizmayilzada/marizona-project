@@ -1,5 +1,8 @@
-﻿using Marizona.WebUI.Models.Entities;
+﻿using Marizona.WebUI.Models.DataContexts;
+using Marizona.WebUI.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Marizona.WebUI.Controllers
 {
@@ -23,9 +26,19 @@ namespace Marizona.WebUI.Controllers
             return View();
         }
 
+        private readonly MarizonaDbContext db;
+
+        public HomeController(MarizonaDbContext db)
+        {
+            this.db = db;
+        }
         public IActionResult AboutUs()
         {
-            return View();
+            var chefs = db.Chefs
+                .Include(e => e.PositionChef)
+                .Include(e => e.SocialMedia).ToList();
+
+            return View(chefs);
         }
     }
 }

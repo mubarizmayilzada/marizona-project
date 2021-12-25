@@ -53,5 +53,8 @@ namespace Marizona.WebUI.Models.DataContexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductIngredient> ProductIngridients { get; set; }
         public DbSet<Size> Sizes { get; set; }
+        public DbSet<Chef> Chefs { get; set; }
+        public DbSet<PositionChef> PositionChefs { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
     }
 }

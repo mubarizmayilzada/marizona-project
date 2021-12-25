@@ -25,19 +25,23 @@
                                 <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
                             </div>
                             <div class="product-caption">
-                                <ul class="product-stars">
-                                    <li class="rate-star"><i class="far fa-star"></i></li>
-                                    <li class="rate-star"><i class="far fa-star"></i></li>
-                                    <li class="rate-star"><i class="far fa-star"></i></li>
-                                    <li class="rate-star"><i class="far fa-star"></i></li>
-                                    <li class="rate-star"><i class="far fa-star"></i></li>
-                                </ul>
+                                @*<ul class="product-stars">
+                                        <li class="rate-star"><i class="far fa-star"></i></li>
+                                        <li class="rate-star"><i class="far fa-star"></i></li>
+                                        <li class="rate-star"><i class="far fa-star"></i></li>
+                                        <li class="rate-star"><i class="far fa-star"></i></li>
+                                        <li class="rate-star"><i class="far fa-star"></i></li>
+                                    </ul>*@
                                 <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id" class="product-title">@item.Title</a>
                                 <div class="product-mini-description">@item.ShortDescription</div>
                                 <div class="price-basket">
                                     <div>
-                                        <span class="main-price">$10.18</span>
-                                        <span class="price">$12.00</span>
+                                        <span class="main-price @(item.IsSalePrice != null ? "is-sale" : "")">
+                                            $@item.Price
+                                        </span>
+                                        <span class="price @(item.IsSalePrice == null ? "is-sale-none" : "")">
+                                            $@item.IsSalePrice
+                                        </span>
                                     </div>
                                     <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
                                 </div>
@@ -137,7 +141,7 @@
         const pageTitle = document.getElementById("page-title");
         const spans = document.querySelectorAll(".category-title-sub-touch");
         let spanText;
-    
+
         spans.forEach(span => {
             span.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -148,3 +152,22 @@
     </script>
 }
 
+
+
+
+@section addcss{
+    <style>
+        .main-price {
+            display: block !important;
+            margin-right: 20px !important;
+        }
+        .is-sale-none {
+            display: none !important;
+        }
+        .price-basket > div {
+            white-space: nowrap;
+            width: 100%;
+            display: flex;
+        }
+    </style>
+}
