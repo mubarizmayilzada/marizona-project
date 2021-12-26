@@ -31,8 +31,6 @@ function checkEmail(input) {
 }
 
 submitBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
     checkEmail(inputEmail);
 
 

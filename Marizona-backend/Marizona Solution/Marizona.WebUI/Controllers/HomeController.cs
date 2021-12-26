@@ -2,6 +2,7 @@
 using Marizona.WebUI.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace Marizona.WebUI.Controllers
@@ -21,9 +22,16 @@ namespace Marizona.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Contact(Contact model)
+        public IActionResult Contact(ContactPost model)
         {
-            return View();
+            ViewBag.CurretDate = DateTime.Now.ToString("dd.MM.yyyy.HH:mm:ss ffffff");
+            if (ModelState.IsValid)
+            {
+                db.ContactPosts.Add(model);
+                db.SaveChanges();
+                return View();
+            }
+            return View(model);
         }
 
         private readonly MarizonaDbContext db;

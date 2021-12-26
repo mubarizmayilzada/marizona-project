@@ -48,7 +48,7 @@ namespace Marizona.WebUI.Models.DataContexts
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogTag> BlogTags { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<ContactPost> ContactPosts { get; set; }
         public DbSet<Ingridient> Ingridients { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductIngredient> ProductIngridients { get; set; }

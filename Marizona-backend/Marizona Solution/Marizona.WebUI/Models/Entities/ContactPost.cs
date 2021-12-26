@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Marizona.WebUI.Models.Entities
 {
-    public class Contact :BaseEntity
+    public class ContactPost :BaseEntity
     {
         [Required]
         public string Name { get; set; }
@@ -21,7 +18,7 @@ namespace Marizona.WebUI.Models.Entities
         [Required]
         public string Subject { get; set; }
         public string Answer { get; set; }
-        public DateTime? AnswerDate { get; set; }
-        public int? AnswerBy { get; set; }
+        public DateTime? AnsweredDate { get; set; }
+        public int? AnswerByUserİd { get; set; }
     }
 }
