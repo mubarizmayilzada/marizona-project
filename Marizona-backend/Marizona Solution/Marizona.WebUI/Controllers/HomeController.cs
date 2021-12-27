@@ -17,6 +17,8 @@ namespace Marizona.WebUI.Controllers
 
         public IActionResult Contact()
         {
+            ViewBag.CurretDate = DateTime.Now.ToString("dd.MM.yyyy.HH:mm:ss ffffff");
+
             return View();
         }
 
@@ -29,9 +31,24 @@ namespace Marizona.WebUI.Controllers
             {
                 db.ContactPosts.Add(model);
                 db.SaveChanges();
-                return View();
+
+                //ModelState.Clear();
+                //ViewBag.Message = ;
+
+                //return View();
+
+                return Json(new {
+                    error = false,
+                    message = "Sizin müraciətiniz qeydə alındı. Tezliklə sizə geri dönüş edəcəyik!"
+                });
             }
-            return View(model);
+            //return View(model);
+
+            return Json(new
+            {
+                error = true,
+                message = "Biraz sonra yenidən yoxlayın."
+            });
         }
 
         private readonly MarizonaDbContext db;

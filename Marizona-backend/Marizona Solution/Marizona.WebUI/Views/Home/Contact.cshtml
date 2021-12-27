@@ -57,35 +57,52 @@
                     <p id="contact-form-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
 
                     <form id="form" method="post">
+                        @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+                        {
+                            <div class="alert alert-success text-black" style="width: 100%">
+                                @ViewBag.Message
+                            </div>
+                        }
+                        <br />
                         <div class="form-control" id="form-control-name">
                             <label for="name"></label>
                             <input asp-for="Name"
-                                   id="name" 
-                                   placeholder="Your name">
+                                   id="name"
+                                   placeholder="Your name"
+                                   data-rule-required="true"
+                                   data-msg-required="Name bosh buraxila bilmez" />
                             <small id="nameSmall">Name must be at least 3 characters</small>
                         </div>
                         <div class="form-control" id="form-control-email">
                             <label for="email"></label>
                             <input asp-for="Email"
-                                   id="email" 
-                                   type="text" 
-                                   placeholder="Email">
+                                   id="email"
+                                   type="text"
+                                   placeholder="Email"
+                                   data-rule-required="true"
+                                   data-msg-required="Bosh buraxila bilmez"
+                                   data-rule-email="true"
+                                   data-msg-email="Email formata uyqun deyil">
                             <small id="emailSmall">Email is not required</small>
                         </div>
                         <div class="form-control" id="form-control-subject">
                             <label for="subject"></label>
                             <input asp-for="Subject"
-                                   id="subject"  
-                                   placeholder="Subject">
+                                   id="subject"
+                                   placeholder="Subject"
+                                   data-rule-required="true"
+                                   data-msg-required="Subject bosh buraxila bilmez">
                             <small id="subjectSmall">Subject must be at least 5 characters</small>
                         </div>
 
                         <div class="form-control" id="form-control-comment">
                             <textarea asp-for="Comment"
-                                      id="textarea" 
-                                      cols="10" 
-                                      rows="10" 
-                                      placeholder="Comment"></textarea>
+                                      id="textarea"
+                                      cols="10"
+                                      rows="10"
+                                      placeholder="Comment"
+                                      data-rule-required="true"
+                                      data-msg-required="Comment bosh buraxila bilmez"></textarea>
                             <small id="commentSmall">Email is not required</small>
                         </div>
                         <button type="submit" class="btn-hard-md" id="submit">SUBMIT</button>
@@ -96,10 +113,100 @@
     </div>
 </section>
 
+@section addcss{
+
+    <link href="~/libs/toastr.js/toastr.css" rel="stylesheet" />
+
+    <style>
+        .is-invalid {
+            color: #dc3545 !important;
+            border: 1px solid #dc3545 !important;
+        }
+
+            .is-invalid + span.error {
+                color: #dc3545;
+                font-size: 13px;
+                margin-left: 10px;
+                margin-top: 5px;
+            }
+
+        .is-valid {
+            color: teal !important;
+            border: 1px solid teal !important;
+        }
+    </style>
+}
 @section addjs{
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+    @*<script src="~/assets/js/contact-form.js"></script>*@
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+    @*<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
 
-    <script src="~/assets/js/contact-form.js"></script>
 
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        $(document).ready(function () {
+            $('#form')
+                .submit(function (e) {
+                    e.preventDefault();
+                    const isValid = $(e.currentTarget).valid();
+                    if (isValid != true)
+                        return;
+
+                    const formData = new FormData(e.currentTarget);
+                    $.ajax({
+                        url: '',
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            console.log();
+
+                            if (response.error == false) {
+                                e.currentTarget.reset();
+                                toastr.success(response.message, "Success")
+
+
+                                $(e.currentTarget).find('.is-valid').removeClass('is-valid');
+                            }
+                            else {
+                                toastr.error(response.message, "Error")
+                            }
+                        },
+                        error: function (response) {
+                            toastr.error("Teyin edilmeyen xeta bash verib, biraz sonra yeniden yoxlayin.", "Error")
+                        },
+                    })
+                })
+                .validate({
+                    errorElement: 'span',
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass('is-invalid').removeClass('is-valid');
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).addClass('is-valid').removeClass('is-invalid');
+                    },
+                })
+        })
+    </script>
 }
 
 
