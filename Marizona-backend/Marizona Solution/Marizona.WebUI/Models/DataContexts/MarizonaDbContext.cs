@@ -56,5 +56,6 @@ namespace Marizona.WebUI.Models.DataContexts
         public DbSet<Chef> Chefs { get; set; }
         public DbSet<PositionChef> PositionChefs { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
     }
 }

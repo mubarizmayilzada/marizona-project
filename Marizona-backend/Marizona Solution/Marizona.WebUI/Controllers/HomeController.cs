@@ -65,5 +65,27 @@ namespace Marizona.WebUI.Controllers
 
             return View(chefs);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Subscribe([Bind("Email")]Subscribe model)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Subscribes.Add(model);
+                db.SaveChanges();
+
+                return Json(new
+                {
+                    error = false,
+                    message = "Sorğunuz uğurla qeydə alındı. Zəhmət olmasa E-poçtunuza göndərilmiş linkdən abunəliyi tamamlayın."
+                });
+            }
+
+            return Json(new { 
+                error = "true",
+                message= "sorğunun icrası zamanı problem yarandı. bir az sonra yeniden yoxlayın."
+            });
+        }
     }
 }

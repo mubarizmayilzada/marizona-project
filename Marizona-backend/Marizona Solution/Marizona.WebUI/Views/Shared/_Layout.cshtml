@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="~/assets/sass/vendors/owl-carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="~/assets/sass/vendors/owl-carousel/owl.theme.default.min.css">
 
+    <link href="~/libs/toastr.js/toastr.css" rel="stylesheet" />
+
     @RenderSection("addcss", required: false)
 </head>
 <body>
@@ -121,7 +123,7 @@
                                 <li><a asp-controller="shop" asp-action="index">>Shop</a></li>
                                 <li><a asp-controller="blog" asp-action="index">>Blog</a></li>
                                 <li><a asp-controller="faqs" asp-action="index">>FAQs</a></li>
-                                <li><a  asp-controller="home" asp-action="contact">>Contact</a></li>
+                                <li><a asp-controller="home" asp-action="contact">>Contact</a></li>
                             </ul>
                         </div>
                         <div class="open-hours">
@@ -147,12 +149,22 @@
                                 Subscribe to the weekly newsletter for all
                                 the latest updates
                             </p>
-                            <div class="input-wrapper">
-                                <input type="email" placeholder="Your Email...">
+                            <form method="post"
+                                  asp-controller="Home"
+                                  asp-action="Subscribe"
+                                  class="input-wrapper"
+                                  id="frmSubscribe">
+                                <input type="email"
+                                       placeholder="Your Email..."
+                                       data-rule-required="true"
+                                       data-msg-required="Bosh buraxila bilmez."
+                                       data-rule-email="true"
+                                       data-msg-email="E-poct unvaniniz uygun deyil.">
                                 <a href="#">
                                     <button class="subscribe-button">SUBSCRIBE</button>
                                 </a>
-                            </div>
+                                @Html.AntiForgeryToken()
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -202,6 +214,68 @@
 
     <script src="~/assets/js/scroll-pizza.js"></script>
     <script src="~/assets/js/animate-text.js"></script>
+
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+
+
+            $('#frmSubscribe').submit(function (e) {
+                e.preventDefault();
+
+                if ($(e.currentTarget).valid() != true) {
+                    return;
+                }
+
+                const formData = new FormData(e.currentTarget);
+                $.ajax({
+                    url: '@Url.Action("Subscribe")',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        console.log();
+
+                        if (response.error == false) {
+                            e.currentTarget.reset();
+                            toastr.success(response.message, "Success")
+                        }
+                        else {
+                            toastr.error(response.message, "Error")
+                        }
+                    },
+                    error: function (response) {
+                        toastr.error("Teyin edilmeyen xeta bash verdi, biraz sonra yeniden yoxlayin.", "Error")
+                    }
+                });
+
+            }).validate({
+                errorElement: 'span'
+            });
+        });
+    </script>
     @RenderSection("addjs", required: false)
 </body>
 </html>
