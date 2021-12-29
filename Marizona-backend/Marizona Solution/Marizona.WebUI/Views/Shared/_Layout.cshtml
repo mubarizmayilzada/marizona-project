@@ -155,6 +155,7 @@
                                   class="input-wrapper"
                                   id="frmSubscribe">
                                 <input type="email"
+                                       name="email"
                                        placeholder="Your Email..."
                                        data-rule-required="true"
                                        data-msg-required="Bosh buraxila bilmez."
@@ -218,6 +219,11 @@
     <script src="~/libs/toastr.js/toastr.min.js"></script>
     <script src="~/libs/jquery-validate/jquery.validate.js"></script>
 
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+    @*<script src="~/assets/js/contact-form.js"></script>*@
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+    @*<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+    
     <script>
         $(document).ready(function () {
 
@@ -244,9 +250,8 @@
             $('#frmSubscribe').submit(function (e) {
                 e.preventDefault();
 
-                if ($(e.currentTarget).valid() != true) {
+                if ($(e.currentTarget).valid() != true)
                     return;
-                }
 
                 const formData = new FormData(e.currentTarget);
                 $.ajax({
@@ -267,8 +272,8 @@
                         }
                     },
                     error: function (response) {
-                        toastr.error("Teyin edilmeyen xeta bash verdi, biraz sonra yeniden yoxlayin.", "Error")
-                    }
+                        toastr.error("Teyin edilmeyen xeta bash verib, biraz sonra yeniden yoxlayin.", "Error")
+                    },
                 });
 
             }).validate({

@@ -1,9 +1,13 @@
-﻿using Marizona.WebUI.Models.DataContexts;
+﻿using Marizona.WebUI.AppCode.Extensions;
+using Marizona.WebUI.Models.DataContexts;
 using Marizona.WebUI.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 
 namespace Marizona.WebUI.Controllers
 {
@@ -52,10 +56,12 @@ namespace Marizona.WebUI.Controllers
         }
 
         private readonly MarizonaDbContext db;
+        private readonly IConfiguration configuration;
 
-        public HomeController(MarizonaDbContext db)
+        public HomeController(MarizonaDbContext db,IConfiguration configuration)
         {
             this.db = db;
+            this.configuration = configuration;
         }
         public IActionResult AboutUs()
         {
@@ -72,9 +78,43 @@ namespace Marizona.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var current = db.Subscribes.FirstOrDefault(s => s.Email.Equals(model.Email));
+
+                if (current != null && current.EmailConfirmed == true)
+                {
+                    return Json(new
+                    {
+                        error = true,
+                        message = "Bu e-poctla daha öncə abunəçi qeydiyyatı edilib."
+                    });
+                }
+                else if (current != null && (current.EmailConfirmed ?? false == false))
+                {
+                    return Json(new
+                    {
+                        error = true,
+                        message = "E-pocta gonderilmis linkle qeydiyyat tamamlanmayib."
+                    });
+                }
                 db.Subscribes.Add(model);
                 db.SaveChanges();
 
+                string token = $"subscribetoken-{model.Id}-{DateTime.Now:yyyyMMddHHmmss}";
+
+                string path = $"{Request.Scheme}://{Request.Host}/subscribe-confirm?token={token}";
+
+                var mailSended = configuration.SendEmail(model.Email, "Marizona Newsletter subscribe", $"Zehmet olmasa <a href={path}>Link</a> vasitesi ile abuneliyi tamamlayin");
+
+                if (mailSended == false)
+                {
+                    db.Database.RollbackTransaction();
+
+                    return Json(new
+                    {
+                        error = false,
+                        message = "E-mail gonderilen zaman xeta bash verdi. biraz sonra yeniden yoxlayin."
+                    });
+                }
                 return Json(new
                 {
                     error = false,
