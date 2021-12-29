@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace Marizona.WebUI.Controllers
 {
@@ -126,6 +127,43 @@ namespace Marizona.WebUI.Controllers
                 error = "true",
                 message= "sorğunun icrası zamanı problem yarandı. bir az sonra yeniden yoxlayın."
             });
+        }
+
+        [HttpGet]
+        [Route("subscribe-confirm")]
+        public IActionResult SubscribeConfirm(string token)
+        {
+            Match match = Regex.Match(token, @"subscribetoken-(?<id>\d)+-(?<executeTimeStamp>\d{14})");
+
+            if (match.Success)
+            {
+                int id = Convert.ToInt32(match.Groups["id"].Value);
+                string executeTimeStamp = match.Groups["executeTimeStamp"].Value;
+
+                var subscribe = db.Subscribes.FirstOrDefault(s => s.Id == id);
+
+                if (subscribe == null)
+                {
+                    ViewBag.Message = Tuple.Create(true, "Token xətası!");
+                    goto end;
+                }
+
+                if ((subscribe.EmailConfirmed ?? false) == true)
+                {
+                    ViewBag.Message = Tuple.Create(true, "Abunəliyiniz artıq təsdiq edilmişdir!");
+                    goto end;
+                }
+                subscribe.EmailConfirmed = true;
+                subscribe.EmailConfirmedDate = DateTime.Now;
+                db.SaveChanges();
+
+                ViewBag.Message = Tuple.Create(false, "Abunəliyiniz təsdiq edildi!");
+
+
+            }
+
+        end:
+            return View();
         }
     }
 }

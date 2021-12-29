@@ -1,0 +1,59 @@
+﻿
+@{
+    var m = ViewBag.Message as Tuple<bool, string>;
+}
+@{
+    ViewData["Title"] = "SubscribeConfirm";
+}
+
+<section class="about-page">
+    <div>
+        <h1>Contact Us</h1>
+        <span class="about-page__sub-text"><span>" Marizona "</span> is the perfect place for Fast food</span>
+    </div>
+</section>
+
+
+
+<section class="contact-marizona">
+    <div class="container">
+        <div class="contact-us">
+            <div class="SubscribeConfirm">
+                @if (m.Item1)
+                {
+                    <h2 class="subscribe-about-false">
+                        @m.Item2
+                    </h2>
+                    }
+                else
+                {
+                   <h2 class="subscribe-about-true">
+                       @m.Item2
+                   </h2>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section addcss{ 
+    <style>
+        .SubscribeConfirm .subscribe-about-false {
+            padding: 50px;
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            color: white;
+        }
+        .SubscribeConfirm .subscribe-about-true {
+            padding: 50px;
+            height: 100%;
+            width: 100%;
+            background-color: green;
+            color: white;
+        }
+
+    </style>
+
+}

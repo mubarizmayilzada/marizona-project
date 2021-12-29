@@ -301,3 +301,4 @@ E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Soluti
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\FAQs\Index.cshtml.g.cs
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Menu\Index.cshtml.g.cs
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\bin\Debug\net5.0\libman.json
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Home\SubscribeConfirm.cshtml.g.cs
