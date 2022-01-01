@@ -148,7 +148,6 @@ E:\P317\Final-Project\marizona-project\Marizona-backend\Marizona Solution\Marizo
 E:\P317\Final-Project\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\P317\Final-Project\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Blog\Details.cshtml.g.cs
 E:\P317\Final-Project\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.csproj.AssemblyReference.cache
-E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.csproj.AssemblyReference.cache
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.GeneratedMSBuildEditorConfig.editorconfig
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.AssemblyInfoInputs.cache
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.AssemblyInfo.cs
@@ -302,3 +301,16 @@ E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Soluti
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Menu\Index.cshtml.g.cs
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\bin\Debug\net5.0\libman.json
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Home\SubscribeConfirm.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Marizona.WebUI.csproj.AssemblyReference.cache
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Sizes\Create.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Sizes\Details.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Sizes\Edit.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Sizes\Index.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\FAQs\Create.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\FAQs\Details.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\FAQs\Edit.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\FAQs\Index.cshtml.g.cs
