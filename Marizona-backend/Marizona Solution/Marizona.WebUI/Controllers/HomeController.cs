@@ -100,7 +100,13 @@ namespace Marizona.WebUI.Controllers
                 db.Subscribes.Add(model);
                 db.SaveChanges();
 
+                
+                
                 string token = $"subscribetoken-{model.Id}-{DateTime.Now:yyyyMMddHHmmss}";
+                token = token.Encrypt();
+
+
+
 
                 string path = $"{Request.Scheme}://{Request.Host}/subscribe-confirm?token={token}";
 
@@ -133,6 +139,8 @@ namespace Marizona.WebUI.Controllers
         [Route("subscribe-confirm")]
         public IActionResult SubscribeConfirm(string token)
         {
+            token = token.Decrypt();
+
             Match match = Regex.Match(token, @"subscribetoken-(?<id>\d)+-(?<executeTimeStamp>\d{14})");
 
             if (match.Success)
@@ -160,6 +168,11 @@ namespace Marizona.WebUI.Controllers
                 ViewBag.Message = Tuple.Create(false, "Abunəliyiniz təsdiq edildi!");
 
 
+            }
+            else
+            {
+                ViewBag.Message = Tuple.Create(true, "Token xətası!");
+                goto end;
             }
 
         end:
