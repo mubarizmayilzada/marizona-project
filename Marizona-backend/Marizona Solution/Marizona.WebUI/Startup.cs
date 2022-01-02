@@ -1,15 +1,11 @@
 using Marizona.WebUI.AppCode.Extensions;
+using Marizona.WebUI.AppCode.Middlewares;
 using Marizona.WebUI.Models.DataContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Marizona.WebUI
 {
@@ -48,6 +44,10 @@ namespace Marizona.WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
+
+
+            app.UseAudit();
+
 
             app.UseEndpoints(endpoints =>
             {

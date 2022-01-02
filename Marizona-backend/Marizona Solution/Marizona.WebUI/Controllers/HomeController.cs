@@ -73,12 +73,14 @@ namespace Marizona.WebUI.Controllers
             return View(chefs);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Subscribe([Bind("Email")]Subscribe model)
         {
             if (ModelState.IsValid)
             {
+                db.Database.BeginTransaction();
                 var current = db.Subscribes.FirstOrDefault(s => s.Email.Equals(model.Email));
 
                 if (current != null && current.EmailConfirmed == true)
@@ -122,6 +124,7 @@ namespace Marizona.WebUI.Controllers
                         message = "E-mail gonderilen zaman xeta bash verdi. biraz sonra yeniden yoxlayin."
                     });
                 }
+                db.Database.CommitTransaction();
                 return Json(new
                 {
                     error = false,

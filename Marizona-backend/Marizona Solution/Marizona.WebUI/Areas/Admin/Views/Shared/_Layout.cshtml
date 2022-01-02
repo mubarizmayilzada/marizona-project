@@ -30,7 +30,7 @@
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="~/admin/assets/icon/feather/css/feather.css">
     @*font awesome*@
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/admin/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/admin/assets/css/jquery.mCustomScrollbar.css">
@@ -43,6 +43,7 @@
             border-radius: 2px;
             border: 1px solid #ccc;
             margin-bottom: 0;
+            height: auto;
         }
 
         p.textarea {
@@ -53,6 +54,7 @@
             min-height: 150px;
             resize: none;
         }
+
         th.operate-cell,
         td.operate-cell {
             min-height: 90px;
@@ -60,16 +62,17 @@
             text-align: right;
         }
 
-        th.operate-cell > a > i,
-        td.operate-cell > a > i {
-            margin: 0;   
-        }
+            th.operate-cell > a > i,
+            td.operate-cell > a > i {
+                margin: 0;
+            }
 
         .table td,
         .table th {
             vertical-align: middle;
         }
     </style>
+    @RenderSection("addcss", required: false)
 </head>
 
 <body>
@@ -420,6 +423,42 @@
                                     <a asp-controller="sizes" asp-action="index">
                                         <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
                                         <span class="pcoded-mtext">Sizes</span>
+                                    </a>
+                                    <a asp-controller="faqs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">FAQs</span>
+                                    </a>
+                                    <a asp-controller="blogtags" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">BlogTags</span>
+                                    </a>
+                                    <a asp-controller="categories" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Categories</span>
+                                    </a>
+                                    <a asp-controller="positionchefs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Position Chefs</span>
+                                    </a>
+                                    <a asp-controller="socialmedias" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Sosial Medias</span>
+                                    </a>
+                                    <a asp-controller="chefs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Chefs</span>
+                                    </a>
+                                    <a asp-controller="contactposts" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Contact Posts</span>
+                                    </a>
+                                    <a asp-controller="products" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Products</span>
+                                    </a>
+                                    <a asp-controller="blogs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Blog</span>
                                     </a>
                                 </li>
                                 <li class="pcoded-hasmenu">
@@ -1871,6 +1910,6 @@
     <script src="~/admin/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="~/admin/assets/js/script.js"></script>
-
+    @RenderSection("addjs", required: false)
 </body>
 </html>

@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "YGspXdHCCVrJvhmwkvvlnG8pOWheulPDwoRydI+4fEkS1edZUoDgNiyMrXy8ox0Ai4mKzZXXImszmleoH4MAog==",
+  "dgSpecHash": "3DSixvnEcRQ3Fv73yfziJ2II7wXB+GClAB7R67F4jQkXDjlTzAqGWnbm5o6THh/PZttI9SwyhsTV6YEiS38RBA==",
   "success": true,
   "projectFilePath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.0\\microsoft.aspnetcore.razor.language.5.0.0.nupkg.sha512",

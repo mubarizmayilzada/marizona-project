@@ -1,4 +1,4 @@
-﻿
+﻿@model Blog
 @{
     ViewData["Title"] = "Details";
 }
@@ -22,35 +22,7 @@
                         <img src="~/uploads/images/history_2010.jpg" alt="">
                     </div>
                     <div class="blog-post__body">
-                        <h2 class="blog-post__body__title">
-                            10 Reasons To Do A Digital Detox Challenge
-                        </h2>
-                        <span class="blog-post__body__category">category</span>
-                        <span class="blog-post__body__slash">/</span>
-                        <span class="blog-post__body__time">07.34.2021</span>
-                        <br>
-                        <p class="blog-post__body__description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Voluptates eligendi laudantium culpa veritatis explicabo, quisquam repellat deleniti
-                            error dolorum numquam praesentium, minus tempora, enim magni. Laudantium, a. Sequi, cum tempore.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse assumenda minima est reiciendis at non quibusdam aliquid corporis beatae ut.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, inventore. <br><br>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio ab ratione enim, illo consequatur pariatur!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium cupiditate adipisci alias perferendis necessitatibus?Lorem ipsum d
-                            olor sit amet consectetur adipisicing elit. Maxime necessitatibus, quaerat consequuntur tenetur voluptas sol
-                            it quod velit provident magni a atque vero facilis veritatis, incidunt alias esse vitae libero voluptate totam, laudantium consectetur.
-                        </p>
-                        <h3 class="blog-post__body__sub-title">
-                            <i class="fas fa-quote-right"></i>
-                            Champions keep playing until they get it right. I want my tennis to speak for everything. When you do something best in life, you don’t really want to give that up – and for me it’s tennis.
-                        </h3>
-                        <p class="blog-post__body__sub-description">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            Laudantium non ipsa libero debitis, tempore mollitia ipsum,
-                            aliquam pariatur necessitatibus exercitationem architecto,
-                            sapiente error porro nobis deserunt sit eius? Ullam, deleniti.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, adipisci.
-                        </p>
+                        @Html.Raw(Model.Description)
                     </div>
                 </div>
             </div>
