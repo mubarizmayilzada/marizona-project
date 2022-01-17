@@ -21,13 +21,20 @@ using Marizona.WebUI.Models.ViewModels;
 #nullable disable
 #nullable restore
 #line 3 "E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\Views\_ViewImports.cshtml"
+using Marizona.WebUI.Models.FormModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\Views\_ViewImports.cshtml"
 using Marizona.WebUI.Models.Entities;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0b78240a099759ab65680ce31fcbe04f085699da", @"/Views/Account/Profile.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd6787b4bab687f1ca070ffa19177394626b28f9", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"25ad4215b0e5ebe60475096fca662aeeea6b52dc", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_Profile : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("login-logo"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -70,8 +77,8 @@ using Marizona.WebUI.Models.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<section id=\"login\">\r\n    <div class=\"container\">\r\n        <section class=\"login\">\r\n            <div class=\"login-wrapper\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b78240a099759ab65680ce31fcbe04f085699da5507", async() => {
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b78240a099759ab65680ce31fcbe04f085699da5723", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b78240a099759ab65680ce31fcbe04f085699da5752", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b78240a099759ab65680ce31fcbe04f085699da5968", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

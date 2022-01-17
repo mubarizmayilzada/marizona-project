@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Marizona.WebUI.Models.Entities
 {
@@ -10,7 +11,8 @@ namespace Marizona.WebUI.Models.Entities
         public string ImagePath { get; set; }
         public DateTime? PublishedDate { get; set; }
         public int BlogTagId { get; set; }
-        public BlogTag BlogTag { get; set; }
+        public BlogTag BlogTag { get; set; } 
+        public virtual ICollection<BlogPostComment> Comments { get; set; }
 
     }
 }

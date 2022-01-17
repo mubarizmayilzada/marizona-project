@@ -3,7 +3,7 @@ using System;
 using System.Net;
 using System.Net.Mail;
 
-namespace Marizona.WebUI.AppCode.Extensions
+namespace Marizona.WebUI.Core.Extensions
 {
     static public partial class Extension
     {

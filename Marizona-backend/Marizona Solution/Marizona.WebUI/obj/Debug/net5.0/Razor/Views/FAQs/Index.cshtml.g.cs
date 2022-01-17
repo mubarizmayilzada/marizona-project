@@ -21,13 +21,20 @@ using Marizona.WebUI.Models.ViewModels;
 #nullable disable
 #nullable restore
 #line 3 "E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\Views\_ViewImports.cshtml"
+using Marizona.WebUI.Models.FormModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\Views\_ViewImports.cshtml"
 using Marizona.WebUI.Models.Entities;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c0595ee6d98150c3ab8ad1038cef4a8c2debe818", @"/Views/FAQs/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd6787b4bab687f1ca070ffa19177394626b28f9", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"25ad4215b0e5ebe60475096fca662aeeea6b52dc", @"/Views/_ViewImports.cshtml")]
     public class Views_FAQs_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<FAQ>>
     {
         #pragma warning disable 1998

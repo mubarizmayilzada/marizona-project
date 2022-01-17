@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Marizona.WebUI.AppCode.Extensions
+namespace Marizona.WebUI.Core.Extensions
 {
     static public partial class Extension
     {

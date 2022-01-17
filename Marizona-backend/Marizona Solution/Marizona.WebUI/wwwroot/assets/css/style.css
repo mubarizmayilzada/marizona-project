@@ -3609,7 +3609,10 @@ footer .wrapper-stars {
             color: #FFC222 !important;
         }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
+    .shop-wrapper {
+        justify-content: center;
+    }
     .shop .shop-wrapper .product-items-aside .cards .card {
         width: 330px !important;
     }

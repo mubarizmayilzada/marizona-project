@@ -21,13 +21,20 @@ using Marizona.WebUI.Models.ViewModels;
 #nullable disable
 #nullable restore
 #line 3 "E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\Views\_ViewImports.cshtml"
+using Marizona.WebUI.Models.FormModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\Views\_ViewImports.cshtml"
 using Marizona.WebUI.Models.Entities;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"672dc61062545708bdecd170a113f72321353496", @"/Views/Home/AboutUs.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd6787b4bab687f1ca070ffa19177394626b28f9", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"25ad4215b0e5ebe60475096fca662aeeea6b52dc", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_AboutUs : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Chef>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/uploads/images/history_1960.jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,7 +107,7 @@ using Marizona.WebUI.Models.Entities;
                 <div class=""timeline-content"">
                     <h3 class=""dat");
             WriteLiteral("e\">\r\n                        20th may, 1960\r\n                    </h3>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f723213534969840", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349610085", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -125,7 +132,7 @@ using Marizona.WebUI.Models.Entities;
                 <div class=""timeline-content"">
                     <h3 class=""date"">20th may, 1968</h3>
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349611424", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349611670", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -148,7 +155,7 @@ using Marizona.WebUI.Models.Entities;
                 <div class=""timeline-content"">
                     <h3 class=""date"">20th may, 1970</h3>
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349612952", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349613198", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -171,7 +178,7 @@ using Marizona.WebUI.Models.Entities;
                 <div class=""timeline-content"">
                     <h3 class=""date"">20th may, 2010</h3>
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349614548", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349614794", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -194,7 +201,7 @@ using Marizona.WebUI.Models.Entities;
                 <div class=""timeline-content"">
                     <h3 class=""date"">20th may, 2020</h3>
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349616131", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349616377", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -220,7 +227,7 @@ using Marizona.WebUI.Models.Entities;
 
 <div class=""video-container"">
     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("video", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349617551", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("video", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349617797", async() => {
                 WriteLiteral("\r\n    ");
             }
             );
@@ -257,7 +264,7 @@ using Marizona.WebUI.Models.Entities;
         <h2 class=""description__slogan"">From Texas with American Love</h2>
         <p class=""description__short"">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349620295", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349620541", async() => {
                 WriteLiteral("\r\n            <button class=\"btn-hard-md\">ORDER NOW</button>\r\n        ");
             }
             );
@@ -275,7 +282,7 @@ using Marizona.WebUI.Models.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </div>\r\n    <div class=\"random-product-img-div\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349621795", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349622041", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -291,7 +298,7 @@ using Marizona.WebUI.Models.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </div>\r\n</section>\r\n\r\n<section class=\"random-product-about\" style=\"margin-bottom: 30px;\">\r\n    <div class=\"random-product-img-div\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349623156", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349623402", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -312,7 +319,7 @@ using Marizona.WebUI.Models.Entities;
         <h2 class=""description__slogan"">From Texas with American Love</h2>
         <p class=""description__short"">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349624747", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349624993", async() => {
                 WriteLiteral("\r\n            <button class=\"btn-hard-md\">ORDER NOW</button>\r\n        ");
             }
             );
@@ -339,7 +346,7 @@ using Marizona.WebUI.Models.Entities;
         <h2 class=""description__slogan"">From Texas with American Love</h2>
         <p class=""description__short"">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349626741", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349626987", async() => {
                 WriteLiteral("\r\n            <button class=\"btn-hard-md\">ORDER NOW</button>\r\n        ");
             }
             );
@@ -357,7 +364,7 @@ using Marizona.WebUI.Models.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </div>\r\n    <div class=\"random-product-img-div\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349628241", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349628487", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -382,7 +389,7 @@ using Marizona.WebUI.Models.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("                <div class=\"team-card\">\r\n                    <div class=\"img-box\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349630037", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "672dc61062545708bdecd170a113f7232135349630283", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -479,7 +486,7 @@ WriteAttributeValue("", 7456, item.SocialMedia.LinkedinUrl, 7456, 29, false);
         <h2>30 Minutes Delivery!</h2>
         <p>If you’re having a meeting, working late at night and need an extra push. Let us know and we will be there</p>
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349635269", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "672dc61062545708bdecd170a113f7232135349635515", async() => {
                 WriteLiteral("\r\n            <button class=\"btn-hard-md\">MAKE AN ORDER</button>\r\n        ");
             }
             );

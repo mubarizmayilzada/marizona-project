@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Marizona.WebUI.Models.Entities.Membership
 {
-    public class MarizonaUser : IdentityUser<long>
+    public class MarizonaUser : IdentityUser<int>
     {
     }
 }

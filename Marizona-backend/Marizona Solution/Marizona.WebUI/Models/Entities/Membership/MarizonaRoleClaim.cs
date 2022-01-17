@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Marizona.WebUI.Models.Entities.Membership
 {
-    public class MarizonaRoleClaim : IdentityRoleClaim<long>
+    public class MarizonaRoleClaim : IdentityRoleClaim<int>
     {
     }
 }

@@ -66,10 +66,9 @@
                             </ul>
                         </div>
                         <ul class="personal-things">
-                            <li><a asp-controller="account" asp-action="profile"><img src="~/uploads/icons/user.png" alt="user"></a></li>
-                            <li><a href="./wishlist.html"><img src="~/uploads/icons/heart (1).png" alt="hearth"></a></li>
-                            <li><a href="./basket.html"><img src="~/uploads/icons/shopping-basket.png" alt="basket"></a></li>
-                            <li class="other-site"><a href="#"><img src="~/uploads/icons/cheese-burger.png" alt="basket"></a></li>
+                            <li><a asp-controller="account" asp-action="signin"><img src="~/uploads/icons/user.png" alt="user"></a></li>
+                            <li><a asp-controller="shop" asp-action="shoppingCard"><img src="~/uploads/icons/shopping-basket.png" alt="basket"></a></li>
+                            <li class="other-site"><a href="https://mubarizmayilzada.github.io/Burgerland-frontend/"><img src="~/uploads/icons/cheese-burger.png" alt="basket"></a></li>
                         </ul>
                         <img class="tel" src="~/uploads/icons/telephone.png" alt="">
                     </div>
@@ -194,7 +193,7 @@
         <div class="menu-item">
             <div class="menu-item__status"></div>
             <div class="menu-item__icon">
-                <a href="./basket.html"><img src="~/uploads/icons/shopping-basket.png" alt=""></a>
+                <a asp-controller="shop" asp-action="shoppingCard"><img src="~/uploads/icons/shopping-basket.png" alt=""></a>
             </div>
             <div class="menu-item__text">Basket</div>
         </div>

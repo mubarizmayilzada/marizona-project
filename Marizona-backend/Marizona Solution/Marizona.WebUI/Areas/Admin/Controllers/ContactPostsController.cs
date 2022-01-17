@@ -8,17 +8,22 @@ using Microsoft.EntityFrameworkCore;
 using Marizona.WebUI.Models.DataContexts;
 using Marizona.WebUI.Models.Entities;
 using Marizona.WebUI.Models.FormModels;
+using Microsoft.Extensions.Configuration;
+using Marizona.WebUI.Core.Extensions;
 
 namespace Marizona.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ContactPostsController : Controller
     {
-        private readonly MarizonaDbContext db;
 
-        public ContactPostsController(MarizonaDbContext db)
+        private readonly MarizonaDbContext db;
+        readonly IConfiguration configuration;
+
+        public ContactPostsController(MarizonaDbContext db, IConfiguration configuration)
         {
             this.db = db;
+            this.configuration = configuration;
         }
 
         // GET: Admin/ContactPosts
@@ -94,6 +99,7 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
             {
                 try
                 {
+                    db.Database.BeginTransaction();
                     var contact1 = db.ContactPosts.Where(e => e.DeletedDate == null).FirstOrDefault(e => e.Id == contactPost.Id);
                     contact1.Answer = contactPost.Answer;
                     if (contact1.AnsweredDate == null)
@@ -101,6 +107,17 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
                         contact1.AnsweredDate = DateTime.Now;
                     }
                     await db.SaveChangesAsync();
+
+                    var mailSend = configuration.SendEmail(contact1.Email, "Marizona Answer", $"{contact1.Answer}");
+
+                    if (mailSend == false)
+                    {
+                        db.Database.RollbackTransaction();
+                        return View("Details", contact1);
+                    }
+
+                    db.Database.CommitTransaction();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {

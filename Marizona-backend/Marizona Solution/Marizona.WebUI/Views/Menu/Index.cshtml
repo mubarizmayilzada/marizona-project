@@ -23,7 +23,7 @@
 
                 @foreach (var item in Model.Categories)
                 {
-                    <li data-filter="pizza" class="button-select" href="#">@item.Name.ToUpper()</li>
+                    <li data-filter="@item.Name" class="button-select" href="#">@item.Name.ToUpper()</li>
                 }
 
 
@@ -40,7 +40,7 @@
                 <div class="menu-card-wrap" data-category="@item.Category.Name">
                     <div class="menu-card">
                         <img src="~/uploads/images/@item.ImagePath" alt="">
-                        <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
+                        @*<span class="icon-wishlist"><i class="fas fa-heart"></i></span>*@
                         <div class="menu-card__body">
                             <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">
                                 <span>@item.Title</span>

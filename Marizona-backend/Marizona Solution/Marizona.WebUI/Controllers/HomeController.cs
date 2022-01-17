@@ -1,6 +1,7 @@
-﻿using Marizona.WebUI.AppCode.Extensions;
+﻿using Marizona.WebUI.Core.Extensions;
 using Marizona.WebUI.Models.DataContexts;
 using Marizona.WebUI.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,20 +13,24 @@ using System.Text.RegularExpressions;
 
 namespace Marizona.WebUI.Controllers
 {
+
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
 
+        [AllowAnonymous]
         public IActionResult Contact()
         {
             ViewBag.CurretDate = DateTime.Now.ToString("dd.MM.yyyy.HH:mm:ss ffffff");
 
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -64,6 +69,9 @@ namespace Marizona.WebUI.Controllers
             this.db = db;
             this.configuration = configuration;
         }
+
+
+        [AllowAnonymous]
         public IActionResult AboutUs()
         {
             var chefs = db.Chefs
@@ -74,6 +82,7 @@ namespace Marizona.WebUI.Controllers
         }
 
 
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Subscribe([Bind("Email")]Subscribe model)

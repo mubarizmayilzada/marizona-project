@@ -1,11 +1,11 @@
-﻿using Marizona.WebUI.Models.DataContexts;
+﻿using Marizona.WebUI.Core.Extensions;
+using Marizona.WebUI.Models.DataContexts;
 using Marizona.WebUI.Models.Entities.Membership;
 using Marizona.WebUI.Models.FormModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,7 +27,7 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
             this.db = db;
         }
 
-        //[Authorize(Policy = "admin.account.login")]
+       [Authorize(Policy = "admin.account.login")]
         [Route("admin/signin.html")]
         public IActionResult Login()
         {
@@ -35,7 +35,7 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Policy = "admin.account.login")]
+        [Authorize(Policy = "admin.account.login")]
         [Route("admin/signin.html")]
         public async Task<IActionResult> Login(LoginFormModel user)
         {
@@ -62,6 +62,8 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
                 var rIds = db.UserRoles.Where(ur => ur.UserId == foundedUser.Id).Select(ur => ur.RoleId).ToArray();
 
                 //User olmayan  rollari tapirig bidene de olsa varsa bize besdi
+
+
                 var hasAnotherRole = db.Roles.Where(r => !r.NormalizedName.Equals("USER") && rIds.Contains(r.Id)).Any();
 
                 //demeli bu user adiynan admine girmek istiyir
@@ -98,18 +100,19 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-        [Authorize(Policy = "admin.account.logout")]
-        [Route("admin/logout.html")]
-        public async Task<IActionResult> Logout()
-        {
-            await signInManager.SignOutAsync();
-            return RedirectToAction(nameof(Login));
-        }
+        //[Authorize(Policy = "admin.account.logout")]
+        //[Route("admin/logout.html")]
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await signInManager.SignOutAsync();
+        //    return RedirectToAction(nameof(Login));
+        //}
 
-        [Authorize(Policy = "admin.account.forgotpass")]
-        public IActionResult ForgotPass()
-        {
-            return View();
-        }
+        //[Authorize(Policy = "admin.account.forgotpass")]
+        //public IActionResult ForgotPass()
+        //{
+        //    return View();
+        //}
+
     }
 }
