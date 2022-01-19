@@ -16,12 +16,12 @@ namespace Marizona.WebUI.Core.Extensions
 
             try
             {
-                string fromMail = configuration["emailAccount:userName"];
-                string displayName = configuration["emailAccount:displayName"];
-                string smtpServer = configuration["emailAccount:smtpServer"];
-                int smtpPort = Convert.ToInt32(configuration["emailAccount:smtpPort"]);
-                string password = configuration["emailAccount:password"];
-                string cc = configuration["emailAccount:cc"];
+                string displayName = configuration["Email:displayname"];
+                string smptpserver = configuration["Email:smtpserver"];
+                int smptport = Convert.ToInt32(configuration["Email:smtpport"]);
+                string fromMail = configuration["Email:username"];
+                string password = configuration["Email:password"];
+                string cc = configuration["Email:cc"];
 
                 using (MailMessage message = new MailMessage(new MailAddress(fromMail, displayName), new MailAddress(to))
                 {
@@ -33,7 +33,7 @@ namespace Marizona.WebUI.Core.Extensions
                     if (!string.IsNullOrWhiteSpace(cc) && appendCC)
                         message.CC.Add(cc);
 
-                    SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
+                    SmtpClient smtpClient = new SmtpClient(smptpserver, smptport);
                     smtpClient.Credentials = new NetworkCredential(fromMail, password);
                     smtpClient.EnableSsl = true;
                     smtpClient.Send(message);

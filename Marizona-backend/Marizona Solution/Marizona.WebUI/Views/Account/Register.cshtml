@@ -1,4 +1,4 @@
-﻿@model LoginFormModel
+﻿@model RegisterFormModel
 @{ ViewData["Title"] = "Register";
                 Layout = null; }
 
@@ -32,14 +32,14 @@
                 <div class="register-wrapper">
             <form method="post" asp-controller="account" asp-action="register" id="register-frm">
                     <span>Register to Marizona</span>
-                    <label for="register-firstname"></label>
-                    <input type="text" id="register-firstname" placeholder="Firstname">
+                    @*<label for="register-firstname"></label>
+                    <input type="text" id="register-firstname" placeholder="Firstname">*@
                     <label for="register-lastname"></label>
-                    <input type="text" id="register-lastname" placeholder="Lastname">
+                    <input type="text"asp-for="UserName" id="register-lastname" placeholder="Username">
                     <label for="register-email"></label>
-                    <input type="text" id="register-email" placeholder="Email">
+                    <input type="text" asp-for="Email" id="register-email" placeholder="Email">
                     <label for="register-password"></label>
-                    <input type="password" id="register-password" placeholder="Password">
+                    <input type="password" asp-for="Password" id="register-password" placeholder="Password">
                     <label for="register-password-confirm"></label>
                     <input type="password" id="register-password-confirm" placeholder="Confrim Password">
                     <button class="btn-hard-sm" type="submit">Register</button>

@@ -155,6 +155,8 @@ namespace Marizona.WebUI.Controllers
                     Name = "User"
                 };
 
+
+
                 if (!roleManager.RoleExistsAsync(MarizonaRole.Name).Result)
                 {
                     var createRole = roleManager.CreateAsync(MarizonaRole).Result;
