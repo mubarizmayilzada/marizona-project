@@ -114,7 +114,7 @@ namespace Marizona.WebUI.Controllers
 
                 if (mailSended == false)
                 {
-                    db.Database.RollbackTransaction();
+                    //db.Database.RollbackTransaction();
 
                     return Json(new
                     {
@@ -130,7 +130,7 @@ namespace Marizona.WebUI.Controllers
             }
 
             return Json(new { 
-                error = "true",
+                error = true,
                 message= "sorğunun icrası zamanı problem yarandı. bir az sonra yeniden yoxlayın."
             });
         }
@@ -141,7 +141,7 @@ namespace Marizona.WebUI.Controllers
         {
             token = token.Decrypt();
 
-            Match match = Regex.Match(token, @"subscribetoken-(?<id>\d)+-(?<executeTimeStamp>\d{14})");
+            Match match = Regex.Match(token, @"subscribetoken-(?<id>\d+)-(?<executeTimeStamp>\d{14})");
 
             if (match.Success)
             {

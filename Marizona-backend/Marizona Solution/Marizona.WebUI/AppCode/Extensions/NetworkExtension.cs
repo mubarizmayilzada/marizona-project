@@ -19,12 +19,12 @@ namespace Marizona.WebUI.AppCode.Extensions
 
             try
             {
-                string fromMail = configuration["emailAccount:userName"];
-                string displayName = configuration["emailAccount:displayName"];
-                string smtpServer = configuration["emailAccount:smtpServer"];
-                int smtpPort = Convert.ToInt32(configuration["emailAccount:smtpPort"]);
-                string password = configuration["emailAccount:password"];
-                string cc = configuration["emailAccount:cc"];
+                string displayName = configuration["Email:displayname"];
+                string smtpServer = configuration["Email:smtpserver"];
+                int smtpPort = Convert.ToInt32(configuration["Email:smtpport"]);
+                string fromMail = configuration["Email:username"];
+                string password = configuration["Email:password"];
+                string cc = configuration["Email:cc"];
 
                 using (MailMessage message = new MailMessage(new MailAddress(fromMail, displayName), new MailAddress(to))
                 {
