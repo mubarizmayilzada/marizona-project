@@ -14,65 +14,63 @@ using System.Threading.Tasks;
 
 namespace Marizona.WebUI.Controllers
 {
-        [AllowAnonymous]
-        public class AccountController : Controller
+    [AllowAnonymous]
+    public class AccountController : Controller
+    {
+        readonly UserManager<MarizonaUser> userManager;
+        readonly SignInManager<MarizonaUser> signInManager;
+        readonly RoleManager<MarizonaRole> roleManager;
+        readonly IConfiguration configuration;
+        readonly MarizonaDbContext db;
+        public AccountController(UserManager<MarizonaUser> userManager,
+                                 SignInManager<MarizonaUser> signInManager,
+                                 RoleManager<MarizonaRole> roleManager,
+                                 IConfiguration configuration,
+                                 MarizonaDbContext db)
         {
-            readonly UserManager<MarizonaUser> userManager;
-            readonly SignInManager<MarizonaUser> signInManager;
-            readonly RoleManager<MarizonaRole> roleManager;
-            readonly IConfiguration configuration;
-            readonly MarizonaDbContext db;
-            public AccountController(UserManager<MarizonaUser> userManager,
-                                     SignInManager<MarizonaUser> signInManager,
-                                     RoleManager<MarizonaRole> roleManager,
-                                     IConfiguration configuration,
-                                     MarizonaDbContext db)
-            {
-                this.signInManager = signInManager;
-                this.userManager = userManager;
-                this.roleManager = roleManager;
-                this.configuration = configuration;
-                this.db = db;
-            }
+            this.signInManager = signInManager;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
+            this.configuration = configuration;
+            this.db = db;
+        }
 
-            [Authorize(Policy = "account.index")]
-            public IActionResult Index()
-            {
-                return View();
-            }
-
-            [Authorize(Policy = "account.signin")]
-            [Route("signin.html")]
-            public IActionResult SignIn()
-            {
-                return View();
-            }
-
-        [Authorize(Policy = "account.register")]
-        [Route("register.html")]
-        public IActionResult Register()
+       // [Authorize(Policy = "account.index")]
+        public IActionResult Index()
         {
             return View();
         }
 
+
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Logout()
+        {
+
+            await signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
         [HttpPost]
-        [Route("signin.html")]
-        [Authorize(Policy = "account.signin")]
         public async Task<IActionResult> SignIn(LoginFormModel user)
         {
             if (ModelState.IsValid)
             {
                 MarizonaUser foundedUser = null;
-            if (user.UserName.IsEmail() == true)
-            {
-                foundedUser = await userManager.FindByEmailAsync(user.UserName);
-            }
-            else
-            {
-                foundedUser = await userManager.FindByNameAsync(user.UserName);
-            }
+                if (user.UserName.IsEmail() == true)
+                {
+                    foundedUser = await userManager.FindByEmailAsync(user.UserName);
+                }
+                else
+                {
+                    foundedUser = await userManager.FindByNameAsync(user.UserName);
+                }
 
-            if (foundedUser == null || !await userManager.IsInRoleAsync(foundedUser, "User"))
+                if (foundedUser == null || !await userManager.IsInRoleAsync(foundedUser, "User"))
                 {
                     ViewBag.Message = "Your username or password is incorrect!";
                     return View(user);
@@ -112,147 +110,92 @@ namespace Marizona.WebUI.Controllers
 
 
 
-        [Authorize(Policy = "account.register")]
-        [HttpPost]
-        [Route("register.html")]
-        public async Task<IActionResult> Register(RegisterFormModel user)
+        //[Authorize(Policy = "account.register")]
+        //[Route("register.html")]
+        public IActionResult Register()
         {
-            if (ModelState.IsValid)
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterFormModel register)
+        {
+
+            //Eger giris edibse routda myaccount/sing yazanda o seyfe acilmasin homa tulaasin
+            if (User.Identity.IsAuthenticated)
             {
-                db.Database.BeginTransaction();
-                var username = await userManager.FindByNameAsync(user.UserName);
-                var email = await userManager.FindByEmailAsync(user.Email);
+                return RedirectToAction("index", "Home");
 
-                if (username != null) {
-                    ViewBag.Message = "Your username is already used!";
-                    return View(user);                
-                }
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            //Yeni user yaradiriq.
+            MarizonaUser user = new MarizonaUser
+            {
+
+                UserName = register.UserName,
+                Email = register.Email,
+                EmailConfirmed=true
+            };
 
 
 
-                //return Json(new
-                //    {
-                //        error = true,
-                //        message = "Your username is already used!"
-                //    });
+            string token = $"subscribetoken-{register.UserName}-{DateTime.Now:yyyyMMddHHmmss}"; // token yeni id goturuk
 
-                if (email != null)
+            token = token.Encrypt("");
+
+            string path = $"{Request.Scheme}://{Request.Host}/subscribe-confirmm?token={token}"; // path duzeldirik
+
+
+
+            var mailSended = configuration.SendEmail(user.Email, "BeluqaTahir", $"Zehmet olmasa <a href={path}>Link</a> vasitesile abuneliyi tamamlayin");
+
+
+            var person = await userManager.FindByNameAsync(user.UserName);
+
+
+            if (person == null)
+            {
+                //Burda biz userManager vasitesile user ve RegistirVM passwword yoxluyuruq.(yaradiriq)
+                var identityRuselt = await userManager.CreateAsync(user, register.Password);
+
+
+                //Startupda yazdigimiz qanunlara uymursa Configure<IdentityOptions> onda error qaytariq summary ile.;
+                if (!identityRuselt.Succeeded)
                 {
-                    ViewBag.Message = "Your email is already registered!";
-                    return View(user);
-                }
-
-
-
-                    //return Json(new
-                    //{
-                    //    error = true,
-                    //    message = "Your email is already registered!"
-                    //});
-
-                MarizonaRole MarizonaRole = new MarizonaRole
-                {
-                    Name = "User"
-                };
-
-
-
-                if (!roleManager.RoleExistsAsync(MarizonaRole.Name).Result)
-                {
-                    var createRole = roleManager.CreateAsync(MarizonaRole).Result;
-                    if (!createRole.Succeeded)
+                    foreach (var error in identityRuselt.Errors)
                     {
-
-                        ViewBag.Message = "Error, please try again!";
-                        return View(user);
-                        //return Json(new
-                        //{
-                        //    error = true,
-                        //    message = "Error, please try again!"
-                        //});
+                        ModelState.AddModelError("", error.Description);
                     }
                 }
-                else
-                {
-                    //todo
-                    //var role = roleManager.FindByNameAsync(MarizonaRole.Name).Result;
 
-                }
+                //Yratdigimiz user ilk yarananda user rolu verik.
 
-                string password = user.Password;
-                var MarizonaUser = new MarizonaUser()
-                {
-                    UserName = user.UserName,
-                    Email = user.Email,
-                    EmailConfirmed = false
-                };
-                //password 3den yxuari olmaliid
-                var createdUser = userManager.CreateAsync(MarizonaUser, password).Result;
+                await userManager.AddToRoleAsync(user, "User");
 
-                if (createdUser.Succeeded)
-                {
-                    userManager.AddToRoleAsync(MarizonaUser, MarizonaRole.Name).Wait();
-
-                    //string token = $"emailconfirmtoken-{MarizonaUser.Id}-{DateTime.Now:yyyyMMddHHmmss}";
-                    //token = token.Encrypt();
-                    string token = userManager.GenerateEmailConfirmationTokenAsync(MarizonaUser).Result;
-                    string path = $"{Request.Scheme}://{Request.Host}/email-confirm?email={MarizonaUser.Email}&token={token}";
-                    var sendMail = configuration.SendEmail(user.Email, "Marizona email confirming", $"Please, use <a href={path}>this link</a> for confirming");
-
-                    if (sendMail == false)
-                    {
-                        db.Database.RollbackTransaction();
-
-                        ViewBag.Message = "Please, try again";
-                        return View(user);
-
-
-                        //return Json(new
-                        //{
-                        //    error = true,
-                        //    message = "Please, try again"
-                        //});
-                    }
-
-                    db.Database.CommitTransaction();
-
-
-                    ViewBag.Message = "Successfully, please check your email!";
-                    return View(user);
-
-                    //return Json(new
-                    //{
-                    //    error = false,
-                    //    message = "Successfully, please check your email!"
-                    //});
-                }
-                else
-                {
-
-                    ViewBag.Message = "Error, please try again!";
-                    return View(user);
-                    //return Json(new
-                    //{
-                    //    error = true,
-                    //    message = "Error, please try again!"
-                    //});
-                }
+                return RedirectToAction("SignIn", "Account");
 
             }
 
 
-            ViewBag.Message = "Incomplete data";
-            return View(user);
+            if (person.UserName != null)
+            {
+                ViewBag.ms = "Bu username evvelceden qeydiyyatdan kecib";
 
-            //return Json(new
-            //{
-            //    error = true,
-            //    message = "Incomplete data"
-            //});
+                return View(register);
+            }
+            return null;
+
         }
 
-        [Route("email-confirm")]
-        [Authorize(Policy = "account.emailconfirm")]
+
+
+
+        //[Route("email-confirm")]
+        //[Authorize(Policy = "account.emailconfirm")]
         public async Task<IActionResult> EmailConfirm(string email, string token)
         {
             var user = userManager.FindByEmailAsync(email).Result;
@@ -324,34 +267,27 @@ namespace Marizona.WebUI.Controllers
             return RedirectToAction(nameof(SignIn));
         }
 
-        [Authorize(Policy = "account.wishlist")]
-            public IActionResult Wishlist()
-            {
-                return View();
-            }
-
-            [Authorize(Policy = "account.profile")]
-            public IActionResult Profile()
-            {
-                return View();
-            }
-
-            [Authorize(Policy = "account.logout")]
-            [Route("logout.html")]
-            public async Task<IActionResult> Logout()
-            {
-                await signInManager.SignOutAsync();
-                return RedirectToAction("Index", "Home");
-            }
-
-            [Route("accessdenied.html")]
-            public IActionResult AccessDeny()
-            {
-                return View();
-            }
-
-
+       // [Authorize(Policy = "account.wishlist")]
+        public IActionResult Wishlist()
+        {
+            return View();
         }
+
+        //[Authorize(Policy = "account.profile")]
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
+
+
+        //  [Route("accessdenied.html")]
+        public IActionResult Accessdenied()
+        {
+            return View();
+        }
+
     }
+}
 
 

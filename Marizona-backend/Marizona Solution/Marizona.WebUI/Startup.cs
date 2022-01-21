@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -41,91 +42,72 @@ namespace Marizona.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //3.1
-            services.AddControllersWithViews(cfg => {
-                cfg.ModelBinderProviders.Insert(0, new BooleanBinderProvider());  //8.1
+            services.AddControllersWithViews(cfg =>
+            {
 
                 var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-
+                 .RequireAuthenticatedUser()
+                 .Build();
                 cfg.Filters.Add(new AuthorizeFilter(policy));
-            })
-                //eger productla branddaki kimi referens ozu ozunu cagirirsa
-                .AddNewtonsoftJson(cfg =>
-                    cfg.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                );
+
+            });
 
 
-            services.AddControllersWithViews();
-            services.AddDbContext<MarizonaDbContext>();
+            services.AddRouting(cfg => cfg.LowercaseUrls = true);
+
+            services.AddDbContext<MarizonaDbContext>(cfg =>
+            {
+
+                // ve burda cagirib yaziriq appsettings adini 
+                cfg.UseSqlServer(configuration.GetConnectionString("cString"));
+
+            }, ServiceLifetime.Scoped);
 
 
-
-            var asmbls = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Marizona."))
-                .ToArray();
-
+            //Membership ucun yazilib.
             services.AddIdentity<MarizonaUser, MarizonaRole>()
-                .AddEntityFrameworkStores<MarizonaDbContext>()
-                .AddDefaultTokenProviders();
-
-            services.AddScoped<UserManager<MarizonaUser>>(); //4.2
-            services.AddScoped<RoleManager<MarizonaRole>>();  //4.3
-            services.AddScoped<SignInManager<MarizonaUser>>();  //4.4
-            //realtimeda deyisiklikler tetbiq olunsun
-            services.AddScoped<IClaimsTransformation, AppClaimProvider>();
+                .AddEntityFrameworkStores<MarizonaDbContext>().AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(cfg =>
             {
-                cfg.Password.RequireDigit = false;
-                cfg.Password.RequireUppercase = false;
-                cfg.Password.RequireLowercase = false;
-                cfg.Password.RequiredUniqueChars = 1;
-                cfg.Password.RequireNonAlphanumeric = false;
-                cfg.Password.RequiredLength = 3;
 
-                cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireDigit = false; //Reqem teleb elesin?
+                cfg.Password.RequireUppercase = false; //Boyuk reqem teleb elesin?
+                cfg.Password.RequireLowercase = false; //Kick reqem teleb elesin?
+                cfg.Password.RequiredUniqueChars = 1; //Tekrarlanmiyan nece  sombol olsun?(11-22-3)
+                cfg.Password.RequireNonAlphanumeric = false; // 0-9 a-z A-Z  Olmayanlari teleb elemesin?
+                cfg.Password.RequiredLength = 3; //Password nece simboldan ibaret olsun?
 
-                cfg.Lockout.MaxFailedAccessAttempts = 3;
-                cfg.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 3, 0);
+                cfg.User.RequireUniqueEmail = true; //Email tekrarlanmasin 1 adam ucun?
+                //cfg.User.AllowedUserNameCharacters = ""; //User neleri isdifade eliye biler?
 
-                cfg.SignIn.RequireConfirmedEmail = true;
+                cfg.Lockout.MaxFailedAccessAttempts = 3;// 3 seferden cox sefh giris etse diyansin?
+                cfg.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 2, 0);//Nece deq gozlesin ?
+
+
             });
+
 
             services.ConfigureApplicationCookie(cfg =>
             {
-                cfg.LoginPath = "/signin.html";
-                cfg.AccessDeniedPath = "/accessdenied.html";
 
-                cfg.ExpireTimeSpan = new TimeSpan(0, 5, 0);
-                cfg.Cookie.Name = "Marizona";
-            });
+                cfg.LoginPath = "/signin.html"; //Eger adam login olunmuyubsa hara gondersin?
 
-            services.AddAuthentication(); //senin umumiyyetle girmeye selahiyyetin var ya yox
+                cfg.AccessDeniedPath = "/accessdenied.html";//Senin icazen var bu linke yeni link atanda gire bilmesin diye (yeni fb nese atanda ve ya tiktokda olanda beyenmek olmur zad)
 
-            //senin hara girmeye selahiyyetin var
-            services.AddAuthorization(cfg =>
-            {
-                foreach (var item in Extension.principals)
-                {
-                    cfg.AddPolicy(item, p =>
-                    {
-                        p.RequireAssertion(h =>
-                        {
-                            return h.User.IsInRole("SuperAdmin") ||
-                            h.User.HasClaim(item, "1");
-                            //burda nie h.Role.HasClaim elemedikki tekce userde yoxluyurug
-                        });
-                    });
-                }
+                cfg.ExpireTimeSpan = new TimeSpan(0, 10, 10);//Seni sayitda nece deq saxlasin eger sen hecne elemirsense atacaq yeni login olduqdan sonra diansan ve ya saty girdikden sonra diansan
+
+                cfg.Cookie.Name = "Marizona"; //Cookie adi ne olsun isdediyin adi yaza bilersen;
 
             });
 
-            //var asmbls = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Riode."))
-            //    .ToArray();
-            //services.AddMediatR(asmbls);
 
-            //services.AddAutoMapper(asmbls);
+            services.AddAuthentication();
+            services.AddAuthorization();
+
+            services.AddScoped<UserManager<MarizonaUser>>();
+            services.AddScoped<SignInManager<MarizonaUser>>();
+
 
         }
 
@@ -146,7 +128,7 @@ namespace Marizona.WebUI
             }
 
             app.UseStaticFiles();
-            app.SeedMembership();
+         //   app.SeedMembership();
             app.UseRouting();
 
             app.UseRequestLocalization(cfg => {
@@ -162,7 +144,7 @@ namespace Marizona.WebUI
             app.Use(async (context, next) =>
             {
                 if (!context.User.Identity.IsAuthenticated
-                && !context.Request.Cookies.ContainsKey("riode")
+                && !context.Request.Cookies.ContainsKey("Marizona")
                 && context.Request.RouteValues.TryGetValue("area", out object areaName)
                 && areaName.ToString().ToLower().Equals("admin"))
                 {
@@ -179,12 +161,24 @@ namespace Marizona.WebUI
             });
 
             app.UseAudit();
-
+          //  app.SeedMembership();
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+
+                   name: "Default-signin",
+                   pattern: "accessdenied.html",
+                   defaults: new
+                   {
+                       areas = "",
+                       controller = "Account",
+                       action = "accessdenied"
+                   });
+
+
                 endpoints.MapGet("/coming-soon.html", async (context) =>
                 {
                     using (var sr = new StreamReader("views/static/coming-soon.html"))

@@ -1,6 +1,4 @@
 ﻿@model RegisterFormModel
-@{ ViewData["Title"] = "Register";
-                Layout = null; }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,20 +28,19 @@
     <div class="container">
         <section class="register">
                 <div class="register-wrapper">
-            <form method="post" asp-controller="account" asp-action="register" id="register-frm">
+            <form method="post">
                     <span>Register to Marizona</span>
                     @*<label for="register-firstname"></label>
                     <input type="text" id="register-firstname" placeholder="Firstname">*@
                     <label for="register-lastname"></label>
-                    <input type="text"asp-for="UserName" id="register-lastname" placeholder="Username">
+                    <input asp-for="UserName"placeholder="Username">
                     <label for="register-email"></label>
-                    <input type="text" asp-for="Email" id="register-email" placeholder="Email">
+                    <input  asp-for="Email"  placeholder="Email">
                     <label for="register-password"></label>
-                    <input type="password" asp-for="Password" id="register-password" placeholder="Password">
-                    <label for="register-password-confirm"></label>
-                    <input type="password" id="register-password-confirm" placeholder="Confrim Password">
+                    <input  asp-for="Password"  placeholder="Password">
+                   
                     <button class="btn-hard-sm" type="submit">Register</button>
-                    <a href="./account.html">Hesaba Daxil Ol</a>
+                    <a asp-controller="account" asp-action="signin">Hesaba Daxil Ol</a>
             </form>
                 </div>
         </section>
@@ -56,15 +53,16 @@
 
 
 
-<environment names="Development">
+@*<environment names="Development">
     <script src="~/libs/jquery/jquery.js"></script>
     <script>$(document).ready(function () {
             $("#Password").val("123");
             $("#UserName").val("Turkan");
         });</script>
-</environment>
+</environment>*@
 
-@section addjs{
+
+@*@section addjs{
     <script>
         $(document).ready(function () {
             $("#register-frm").submit(function (e) {
@@ -76,7 +74,7 @@
                 var frm = new FormData(e.currentTarget);
 
                 $.ajax({
-                    url: '@Url.Action("Register", "Account")',
+                    url: '@Url.Action("Register")',
                     type: "Post",
                     data: frm,
                     contentType: false,
@@ -110,4 +108,4 @@
             });
         })
     </script>
-}
+}*@

@@ -12,7 +12,9 @@ using System.Threading.Tasks;
 namespace Marizona.WebUI.Areas.Admin.Controllers
 {
     [AllowAnonymous]
-    [Area("Admin")]
+    [Area("Admin")]  
+    [Authorize(Roles = "SuperAdmin")]
+
     public class AccountController : Controller
     {
         readonly UserManager<MarizonaUser> userManager;
@@ -27,16 +29,13 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
             this.db = db;
         }
 
-       [Authorize(Policy = "admin.account.login")]
-        [Route("admin/signin.html")]
+       
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Policy = "admin.account.login")]
-        [Route("admin/signin.html")]
         public async Task<IActionResult> Login(LoginFormModel user)
         {
             if (ModelState.IsValid)
@@ -87,32 +86,7 @@ namespace Marizona.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-        [Authorize(Policy = "admin.account.register")]
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [Authorize(Policy = "admin.account.register")]
-        public IActionResult Register(LoginFormModel user)
-        {
-            return View();
-        }
-
-        //[Authorize(Policy = "admin.account.logout")]
-        //[Route("admin/logout.html")]
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await signInManager.SignOutAsync();
-        //    return RedirectToAction(nameof(Login));
-        //}
-
-        //[Authorize(Policy = "admin.account.forgotpass")]
-        //public IActionResult ForgotPass()
-        //{
-        //    return View();
-        //}
+      
 
     }
 }

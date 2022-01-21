@@ -1,4 +1,4 @@
-﻿
+﻿@model LoginFormModel
 @{
     Layout = null;
 }
@@ -32,13 +32,15 @@
                 <div class="login-wrapper">
                     <a href="./index.html"><img class="login-logo" src="./uploads/icons/Marizona.png" alt=""></a>
                     <span>Log into Marizona</span>
-                    <label for="login-email"></label>
-                    <input type="text" id="login-email" placeholder="Enter your email">
-                    <label for="login-password"></label>
-                    <input type="password" id="login-password" placeholder="Enter your password">
+                    <form method="post">
+                        <label for="login-email"></label>
+                        <input asp-for="UserName" placeholder="Enter your email">
+                        <label for="login-password"></label>
+                        <input asp-for="Password" placeholder="Enter your password">
 
-                    <button class="btn-hard-sm" type="submit">Log in</button>
-                    <a href="./account-register.html">Hesab Yarat</a>
+                        <button  class="btn-hard-sm" type="submit">Log in</button>
+                    </form>
+                   
                 </div>
             </section>
         </div>

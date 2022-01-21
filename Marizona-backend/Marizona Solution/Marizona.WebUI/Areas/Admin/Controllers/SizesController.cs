@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Marizona.WebUI.Models.DataContexts;
 using Marizona.WebUI.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Marizona.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin")]
+
     public class SizesController : Controller
     {
         private readonly MarizonaDbContext db;

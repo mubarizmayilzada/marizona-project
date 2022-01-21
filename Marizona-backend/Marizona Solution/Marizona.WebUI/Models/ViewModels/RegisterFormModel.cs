@@ -16,7 +16,7 @@ namespace Marizona.WebUI.Models.ViewModels
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        [Required]
-        public bool AgreePolicy { get; set; }
+        ////[Required]
+        //public bool AgreePolicy { get; set; } = true;
     }
 }

@@ -66,7 +66,19 @@
                             </ul>
                         </div>
                         <ul class="personal-things">
-                            <li><a asp-controller="account" asp-action="signin"><img src="~/uploads/icons/user.png" alt="user"></a></li>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+
+                                <a asp-controller="account" asp-action="Signin" class="p-2 pl-0"><span>@User.Identity.Name.ToUpper()</span></a>
+                                <a asp-controller="account" asp-action="Logout" class="p-2 pl-0"><span>Logout</span></a>
+                            }
+                            else
+                            {
+                                <li><a asp-controller="account" asp-action="signin"><img src="~/uploads/icons/user.png" alt="user"></a></li>
+                                <a asp-controller="account" asp-action="Register" class="p-2 pl-0"><span>SING UP</span></a>
+                            }
                             <li><a asp-controller="shop" asp-action="shoppingCard"><img src="~/uploads/icons/shopping-basket.png" alt="basket"></a></li>
                             <li class="other-site"><a href="https://mubarizmayilzada.github.io/Burgerland-frontend/"><img src="~/uploads/icons/cheese-burger.png" alt="basket"></a></li>
                         </ul>
@@ -163,7 +175,7 @@
                                 <a href="#">
                                     <button class="subscribe-button">SUBSCRIBE</button>
                                 </a>
-                            @Html.AntiForgeryToken()
+                                @Html.AntiForgeryToken()
                             </form>
                         </div>
                     </div>
@@ -222,7 +234,7 @@
     @*<script src="~/assets/js/contact-form.js"></script>*@
     <script src="~/libs/jquery-validate/jquery.validate.js"></script>
     @*<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
-    
+
     <script>
         $(document).ready(function () {
 

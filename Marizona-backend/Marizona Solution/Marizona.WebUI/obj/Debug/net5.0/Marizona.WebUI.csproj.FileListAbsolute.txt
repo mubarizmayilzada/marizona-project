@@ -361,3 +361,5 @@ E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Soluti
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Login.cshtml.g.cs
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Account\SignIn.cshtml.g.cs
 E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Account\AccessDeny.cshtml.g.cs
+E:\P317\Final-Project\Marizona\marizona-project\Marizona-backend\Marizona Solution\Marizona.WebUI\obj\Debug\net5.0\Razor\Views\Account\Accessdenied.cshtml.g.cs
