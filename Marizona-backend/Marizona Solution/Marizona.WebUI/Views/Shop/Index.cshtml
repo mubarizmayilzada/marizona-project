@@ -22,28 +22,30 @@
                                 <a href="" class="image">
                                     <img src="~/uploads/images/@item.ImagePath" alt="">
                                 </a>
-                                <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
+                                @*<span class="icon-wishlist"><i class="fas fa-heart"></i></span>*@
                             </div>
-                            <div class="product-caption">
-                                @*<ul class="product-stars">
-                                        <li class="rate-star"><i class="far fa-star"></i></li>
-                                        <li class="rate-star"><i class="far fa-star"></i></li>
-                                        <li class="rate-star"><i class="far fa-star"></i></li>
-                                        <li class="rate-star"><i class="far fa-star"></i></li>
-                                        <li class="rate-star"><i class="far fa-star"></i></li>
-                                    </ul>*@
-                                <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id" class="product-title">@item.Title</a>
-                                <div class="product-mini-description">@item.ShortDescription</div>
-                                <div class="price-basket">
-                                    <div>
-                                        <span class="main-price @(item.IsSalePrice != null ? "is-sale" : "")">
-                                            $@item.Price
-                                        </span>
-                                        <span class="price @(item.IsSalePrice == null ? "is-sale-none" : "")">
-                                            $@item.IsSalePrice
-                                        </span>
+                            <div class="product-caption-wrapper">
+                                <div class="product-caption">
+                                    @*<ul class="product-stars">
+                                            <li class="rate-star"><i class="far fa-star"></i></li>
+                                            <li class="rate-star"><i class="far fa-star"></i></li>
+                                            <li class="rate-star"><i class="far fa-star"></i></li>
+                                            <li class="rate-star"><i class="far fa-star"></i></li>
+                                            <li class="rate-star"><i class="far fa-star"></i></li>
+                                        </ul>*@
+                                    <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id" class="product-title">@item.Title</a>
+                                    <div class="product-mini-description">@item.ShortDescription</div>
+                                    <div class="price-basket">
+                                        <div>
+                                            <span class="main-price @(item.IsSalePrice != null ? "is-sale" : "")">
+                                                $@item.Price
+                                            </span>
+                                            <span class="price @(item.IsSalePrice == null ? "is-sale-none" : "")">
+                                                $@item.IsSalePrice
+                                            </span>
+                                        </div>
+                                        <span class="basket"><a href="javascript:addToCard(@item.Id)"><i class="fas fa-shopping-basket"></i></a></span>
                                     </div>
-                                    <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
                                 </div>
                             </div>
                         </div>
@@ -62,16 +64,16 @@
                                     <a href="#" class="category-title-sub-touch">
                                         <div class="item-overview">
 
-                                            <img src="~/uploads/images/burger-aside.png" alt="">
+                                            <img src="~/uploads/images/star.png" alt="">
 
                                             <span class="category-title-sub">
                                                 @item.Name
                                             </span>
                                         </div>
                                     </a>
-                                    <span class="item-count">
-                                        (18)
-                                    </span>
+                                    @*<span class="item-count">
+                                            (18)
+                                        </span>*@
                                 </li>
                             }
                         </ul>
@@ -82,33 +84,18 @@
                 <div class="recent-posts">
                     <span class="category-title">Recent post</span>
 
-                    <div class="recent-post">
-                        <img src="~/uploads/images/shaafi-ali-I0IXBZDEAHo-unsplash.jpg" alt="">
-                        <div class="recent-post__description">
-                            <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                            <span class="time">
-                                August 31, 2020
-                            </span>
+                    @foreach (var blog in Model.RecentBlogs)
+                    {
+                        <div class="recent-post">
+                            <img src="~/uploads/images/@blog.ImagePath" alt="">
+                            <div class="recent-post__description">
+                                <a asp-controller="blog" asp-action="details" asp-route-id="@blog.Id" class="recent-post-link">@blog.Title</a>
+                                <span class="time">
+                                    @blog.CreatedDate.ToString("MM/dd/yyyy")
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="recent-post">
-                        <img src="~/uploads/images/jonathan-borba-8l8Yl2ruUsg-unsplash.jpg" alt="">
-                        <div class="recent-post__description">
-                            <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                            <span class="time">
-                                August 31, 2020
-                            </span>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <img src="~/uploads/images/paula-vermeulen-URjZkhqsuBk-unsplash.jpg" alt="">
-                        <div class="recent-post__description">
-                            <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                            <span class="time">
-                                August 31, 2020
-                            </span>
-                        </div>
-                    </div>
+                    }
                 </div>
 
                 <div class="blog-ad">
@@ -136,7 +123,6 @@
 
 @section addjs{
     <script src="~/assets/js/filter-shop.js"></script>
-
     <script>
         const pageTitle = document.getElementById("page-title");
         const spans = document.querySelectorAll(".category-title-sub-touch");
@@ -150,6 +136,48 @@
             })
         });
     </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script class="removeable">
+        function addToCard(id) {
+
+            let arr = [];
+            var storedJson = $.cookie('basket');
+
+            if (storedJson != undefined && typeof storedJson == 'string') {
+                arr = JSON.parse(storedJson);
+            }
+            var found = arr.filter(item => {
+                return item.productId == id;
+            })[0];
+
+            if (found == undefined) {
+                found = {
+                    productId: id,
+                    count: 1
+                };
+
+                arr.push(found);
+            }
+            else {
+                found.count = found.count + 1;
+            }
+
+            var jsonStrinfy = JSON.stringify(arr);
+
+            $.cookie('basket', jsonStrinfy, { expires: 60, path: '' });
+
+            //showBasketCount();
+        }
+
+        $(document).ready(function () {
+
+
+
+        });
+    </script>
 }
 
 
@@ -161,13 +189,35 @@
             display: block !important;
             margin-right: 20px !important;
         }
+
         .is-sale-none {
             display: none !important;
         }
+
         .price-basket > div {
             white-space: nowrap;
             width: 100%;
             display: flex;
+        }
+    </style>
+
+    <style>
+        .card {
+            position: relative;
+        }
+        .product-caption-wrapper {
+            width: 90%;
+            position: absolute;
+            bottom: 25px;
+        }
+        .product-caption {
+            width: 100%;
+        }
+        .recent-post-link {
+            display: block;
+        }
+        .recent-post {
+            justify-content: normal !important;
         }
     </style>
 }

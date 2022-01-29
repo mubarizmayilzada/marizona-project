@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Marizona.WebUI.Models.Entities.Size>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="page-header">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <div class="d-inline">
+                    <h4>Ölçülər</h4>
+                    <span>
+                        lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#"> <i class="feather icon-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Ölçülər</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<!-- Page-body start -->
+<div class="page-body">
+    <!-- Horizontal-border table start -->
+    <div class="card">
+        <div class="card-header">
+            @*<h5>Sizes</h5>*@
+            @*<span>
+                Example of <code>horizontal</code> table borders. This is a
+                default table border style attached to <code>.table</code> class.
+                All borders have the same grey color and style, table itself doesn't
+                have a border, but you can add this border using
+                <code>.table-framed</code> class added to the table with
+                <code>.table</code> class.
+            </span>*@
+
+        </div>
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table table-framed">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SizeTitle)
+                            </th>
+                            <th class="operate-cell">
+                                <a class="btn btn-sm btn-success btn-outline-success" asp-action="Create">Create</a> 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SizeTitle)
+                                </td>
+                                <td class="operate-cell">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning btn-outline-warning">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-inverse btn-outline-inverse">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger btn-outline-danger">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

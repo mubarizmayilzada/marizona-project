@@ -1,0 +1,412 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title | Marizona</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="#">
+    <meta name="keywords"
+          content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/admin/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/icon/icofont/css/icofont.css">
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/icon/feather/css/feather.css">
+    @*font awesome*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/admin/assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="~/admin/assets/scss/partials/menu/_pcmenu.html">
+
+    <style>
+        p.form-control,
+        p.textarea {
+            font-size: 16px;
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            margin-bottom: 0;
+            height: auto;
+        }
+
+        p.textarea {
+            min-height: 150px;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: none;
+        }
+
+        th.operate-cell,
+        td.operate-cell {
+            min-height: 90px;
+            max-width: 90px;
+            text-align: right;
+        }
+
+            th.operate-cell > a > i,
+            td.operate-cell > a > i {
+                margin: 0;
+            }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+        }
+    </style>
+    @RenderSection("addcss", required: false)
+</head>
+
+<body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="feather icon-menu"></i>
+                        </a>
+                        <a href="../index.html">
+                            <img class="img-fluid" src="~/admin/assets/images/logo.png" alt="Theme-Logo" />
+                        </a>
+                        <a class="mobile-options">
+                            <i class="feather icon-more-horizontal"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container">
+                        <ul class="nav-right">
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()">
+                                    <i class="feather icon-maximize full-screen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Sidebar chat start -->
+            <div id="sidebar" class="users p-chat-user showChat">
+                <div class="had-container">
+                    <div class="card card_main p-fixed users-main">
+                        <div class="user-box">
+                            <div class="chat-inner-header">
+                                <div class="back_chatBox">
+                                    <div class="right-icon-control">
+                                        <input type="text" class="form-control  search-text" placeholder="Search Friend"
+                                               id="search-friends">
+                                        <div class="form-icon">
+                                            <i class="icofont icofont-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-friend-list">
+                                <div class="media userlist-box" data-id="1" data-status="online"
+                                     data-username="Josephin Doe" data-toggle="tooltip" data-placement="left"
+                                     title="Josephin Doe">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius img-radius"
+                                             src="~/admin/assets/images/avatar-3.jpg" alt="Generic placeholder image ">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Josephin Doe</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="2" data-status="online"
+                                     data-username="Lary Doe" data-toggle="tooltip" data-placement="left"
+                                     title="Lary Doe">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/admin/assets/images/avatar-2.jpg"
+                                             alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Lary Doe</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice"
+                                     data-toggle="tooltip" data-placement="left" title="Alice">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/admin/assets/images/avatar-4.jpg"
+                                             alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Alice</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia"
+                                     data-toggle="tooltip" data-placement="left" title="Alia">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/admin/assets/images/avatar-3.jpg"
+                                             alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Alia</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen"
+                                     data-toggle="tooltip" data-placement="left" title="Suzen">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/admin/assets/images/avatar-2.jpg"
+                                             alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Suzen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar inner chat start-->
+            <div class="showChat_inner">
+                <div class="media chat-inner-header">
+                    <a class="back_chatBox">
+                        <i class="feather icon-chevron-left"></i> Josephin Doe
+                    </a>
+                </div>
+                <div class="media chat-messages">
+                    <a class="media-left photo-table" href="#!">
+                        <img class="media-object img-radius img-radius m-t-5" src="~/admin/assets/images/avatar-3.jpg"
+                             alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body chat-menu-content">
+                        <div class="">
+                            <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                            <p class="chat-time">8:20 a.m.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="media chat-messages">
+                    <div class="media-body chat-menu-reply">
+                        <div class="">
+                            <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                            <p class="chat-time">8:20 a.m.</p>
+                        </div>
+                    </div>
+                    <div class="media-right photo-table">
+                        <a href="#!">
+                            <img class="media-object img-radius img-radius m-t-5"
+                                 src="~/admin/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                        </a>
+                    </div>
+                </div>
+                <div class="chat-reply-box p-b-20">
+                    <div class="right-icon-control">
+                        <input type="text" class="form-control search-text" placeholder="Share Your Thoughts">
+                        <div class="form-icon">
+                            <i class="feather icon-navigation"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar inner chat end-->
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-navigatio-lavel">Navigation</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <a asp-controller="sizes" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Sizes</span>
+                                    </a>
+                                    <a asp-controller="faqs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">FAQs</span>
+                                    </a>
+                                    <a asp-controller="blogtags" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">BlogTags</span>
+                                    </a>
+                                    <a asp-controller="categories" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Categories</span>
+                                    </a>
+                                    <a asp-controller="positionchefs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Position Chefs</span>
+                                    </a>
+                                    <a asp-controller="socialmedias" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Sosial Medias</span>
+                                    </a>
+                                    <a asp-controller="chefs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Chefs</span>
+                                    </a>
+                                    <a asp-controller="contactposts" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Contact Posts</span>
+                                    </a>
+                                    <a asp-controller="products" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Products</span>
+                                    </a>
+                                    <a asp-controller="blogs" asp-action="index">
+                                        <span class="pcoded-micon"><i class="feather icon-feather"></i></span>
+                                        <span class="pcoded-mtext">Blog</span>
+                                    </a>
+                                </li>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 10]>
+    <div class="ie-warning">
+        <h1>Warning!!</h1>
+        <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers
+            to access this website.</p>
+        <div class="iew-container">
+            <ul class="iew-download">
+                <li>
+                    <a href="http://www.google.com/chrome/">
+                        <img src="~/admin/assets/images/browser/chrome.png" alt="Chrome">
+                        <div>Chrome</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/">
+                        <img src="~/admin/assets/images/browser/firefox.png" alt="Firefox">
+                        <div>Firefox</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.opera.com">
+                        <img src="~/admin/assets/images/browser/opera.png" alt="Opera">
+                        <div>Opera</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/safari/">
+                        <img src="~/admin/assets/images/browser/safari.png" alt="Safari">
+                        <div>Safari</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                        <img src="~/admin/assets/images/browser/ie.png" alt="">
+                        <div>IE (9 & above)</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+    </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="~/admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/admin/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/admin/bower_components/popper.js/dist/umd/popper.min.js"></script>
+    <script type="text/javascript" src="~/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/admin/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="~/admin/bower_components/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="~/admin/bower_components/modernizr/feature-detects/css-scrollbars.js"></script>
+
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="~/admin/bower_components/i18next/i18next.min.js"></script>
+
+    <script type="text/javascript"
+            src="~/admin/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
+
+    <script type="text/javascript"
+            src="~/admin/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <script type="text/javascript" src="~/admin/bower_components/jquery-i18next/jquery-i18next.min.js"></script>
+    <script src="~/admin/assets/js/pcoded.min.js"></script>
+    <script src="~/admin/assets/js/vartical-layout.min.js"></script>
+    <script src="~/admin/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="~/admin/assets/js/script.js"></script>
+    @RenderSection("addjs", required: false)
+</body>
+</html>

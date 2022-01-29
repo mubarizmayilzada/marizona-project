@@ -1,9 +1,11 @@
 ﻿using Marizona.WebUI.Models.Entities;
+using Marizona.WebUI.Models.Entities.Membership;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Marizona.WebUI.Models.DataContexts
 {
-    public class MarizonaDbContext : DbContext
+    public class MarizonaDbContext : IdentityDbContext<MarizonaUser, MarizonaRole, int, MarizonaUserClaim, MarizonaUserRole, MarizonaUserLogin, MarizonaRoleClaim, MarizonaUserToken>
     {
         public MarizonaDbContext(DbContextOptions<MarizonaDbContext> options)
             :base(options)
@@ -40,6 +42,54 @@ namespace Marizona.WebUI.Models.DataContexts
                                              .HasOne(u => u.Ingridient)
                                              .WithMany(a => a.Products)
                                              .HasForeignKey(aa => aa.IngridientId);
+
+
+
+
+
+            builder.Entity<MarizonaUser>(e =>
+            {
+
+                e.ToTable("Users", "Membership");
+            });
+
+            builder.Entity<MarizonaRole>(e =>
+            {
+
+                e.ToTable("Roles", "Membership");
+            });
+
+            builder.Entity<MarizonaRoleClaim>(e =>
+            {
+
+                e.ToTable("RoleClaims", "Membership");
+            });
+
+            builder.Entity<MarizonaUserClaim>(e =>
+            {
+
+                e.ToTable("UserClaims", "Membership");
+            });
+
+            builder.Entity<MarizonaUserLogin>(e =>
+            {
+
+                e.ToTable("UserLogins", "Membership");
+            });
+
+            builder.Entity<MarizonaUserToken>(e =>
+            {
+
+                e.ToTable("UserTokens", "Membership");
+            });
+
+            builder.Entity<MarizonaUserRole>(e =>
+            {
+
+                e.ToTable("UserRoles", "Membership");
+            });
+
+
         }
 
 
@@ -57,5 +107,8 @@ namespace Marizona.WebUI.Models.DataContexts
         public DbSet<PositionChef> PositionChefs { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<BlogPostComment> BlogPostComments { get; set; }
+
     }
 }

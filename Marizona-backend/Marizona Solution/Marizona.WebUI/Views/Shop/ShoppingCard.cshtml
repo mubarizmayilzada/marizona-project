@@ -1,0 +1,293 @@
+﻿@model List<BasketItem>
+@{
+    ViewData["Title"] = "ShoppingCard";
+}
+
+
+<section class="about-page">
+    <div>
+        <h1> Your Basket</h1>
+        <span class="about-page__sub-text"><span>" Marizona "</span> is the perfect place for Fast food</span>
+    </div>
+</section>
+
+<div class="container">
+    <section class="basket-section">
+        <div class="basket-section__title">
+            <p class="basket-section__title__product-count">Urun sayi (9)</p>
+            <a href="~/confirm-basket.html"><button class="btn-hard-md">Sepeti Onayla <i class="fas fa-angle-double-right"></i> </button></a>
+        </div>
+
+        <div class="basket-section__body">
+
+            <div class="basket-products">
+                @foreach (var item in Model)
+                {
+                    <div data-productId="@item.ProductId" class="basket-product">
+                        <div class="basket-product__img">
+                            <img src="~/uploads/images/@item.ImagePath" alt="">
+                        </div>
+
+                        <div class="basket-product__description">
+                            <a href="#" class="basket-product__description__title">
+                                <span>
+                                    @item.Name
+                                </span>
+                            </a>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <div class="price-basket">
+                                <div>
+                                    <span class="main-price @(item.IsSalePrice != null ? "is-sale" : "")">
+                                        $@item.Price
+                                    </span>
+                                    <span class="price @(item.IsSalePrice == null ? "is-sale-none" : "")">
+                                        $@item.IsSalePrice
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="basket-remove">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                }
+
+                @*<div class="basket-product">
+                        <div class="basket-product__img">
+                            <img src="~/uploads/images/category5.png" alt="">
+                        </div>
+
+                        <div class="basket-product__description">
+                            <a href="#" class="basket-product__description__title">
+                                <span>
+                                    Burger
+                                </span>
+                            </a>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <div class="price-basket">
+                                <div>
+                                    <span class="main-price is-sale">$18.18</span>
+                                    <span class="price">$12.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="basket-remove">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                    <div class="basket-product">
+                        <div class="basket-product__img">
+                            <img src="~/uploads/images/category5.png" alt="">
+                        </div>
+
+                        <div class="basket-product__description">
+                            <a href="#" class="basket-product__description__title">
+                                <span>
+                                    Burger
+                                </span>
+                            </a>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <div class="price-basket">
+                                <div>
+                                    <span class="main-price is-sale">$18.18</span>
+                                    <span class="price">$12.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="basket-remove">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                    <div class="basket-product">
+                        <div class="basket-product__img">
+                            <img src="~/uploads/images/category5.png" alt="">
+                        </div>
+
+                        <div class="basket-product__description">
+                            <a href="#" class="basket-product__description__title">
+                                <span>
+                                    Burger
+                                </span>
+                            </a>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <div class="price-basket">
+                                <div>
+                                    <span class="main-price is-sale">$18.18</span>
+                                    <span class="price">$12.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="basket-remove">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                    <div class="basket-product">
+                        <div class="basket-product__img">
+                            <img src="~/uploads/images/category5.png" alt="">
+                        </div>
+
+                        <div class="basket-product__description">
+                            <a href="#" class="basket-product__description__title">
+                                <span>
+                                    Burger
+                                </span>
+                            </a>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <div class="price-basket">
+                                <div>
+                                    <span class="main-price is-sale">$18.18</span>
+                                    <span class="price">$12.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="basket-remove">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>*@
+            </div>
+
+            <div class="basket-aside">
+                <div class="about-order">
+                    <h2>Sifaris ozeti</h2>
+                    <div class="total-price">
+                        <span>
+                            Total price
+                        </span>
+                        <h3></h3>
+                    </div>
+                    <div class="total-shipping">
+                        <span>
+                            Total shipping
+                        </span>
+                        <h3>30$</h3>
+                    </div>
+                    <p>kargo fiyati her urun ucun standart olaraq 3 dollar olaraq hesablanir.</p>
+                    <span class="order-price">
+                        130$
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+@section addjs{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script class="removeable">
+        function qtyChanged(value, tr) {
+            //  /^(\$)(\d+\.\d{1,2})$/
+
+            var priceStr = $(tr).find('td.shoping-cart-price').text().trim();
+            var groups = /^(\$)(\d+\.\d{1,2})$/.exec(priceStr);
+            //console.log(value, tr);
+
+            if (groups != null) {
+                var symb = groups[1];
+                var price = groups[2];
+
+                var amount = (price * value).toFixed(2);
+
+                $(tr).find('td.shoping-cart-total').text(`${symb}${amount}`);
+
+                computeTotalSum();
+
+                //start: basket change data
+                let arr = [];
+                var storedJson = $.cookie('basket');
+
+                if (storedJson != undefined && typeof storedJson == 'string') {
+                    arr = JSON.parse(storedJson);
+                }
+
+                let productId = $(tr).data("productid");
+
+                var found = arr.filter(item => {
+                    return item.productId == productId;
+                })[0];
+
+                if (found == undefined) {
+                    found = {
+                        productId: productId,
+                        count: 1
+                    };
+
+                    arr.push(found);
+                }
+                else {
+                    found.count = found.count + 1;
+                }
+
+                var jsonStrinfy = JSON.stringify(arr);
+
+                $.cookie('basket', jsonStrinfy, { expires: 60, path: '/' });
+                //end: basket change data
+                showBasketCount()
+            }
+        }
+
+        function computeTotalSum() {
+
+            var prices = $('td.shoping-cart-price').toArray().map(p => {
+
+                var input = $(p).closest('tr').find('.pro-qty input[type="text"]').val();
+                var group = /^(\$)(\d+\.\d{1,2})$/.exec(p.innerText);
+
+                if (group == null)
+                    return 0;
+
+                var price = group[2];
+
+                return parseFloat(price) * parseFloat(input);
+
+
+            });
+
+            if (prices.length == 0) {
+                $('#subtotal').text(`$0.00`);
+                return;
+            }
+            var sum = prices.reduce(function (a, b) {
+                return a + b;
+            });
+
+            $('#subtotal').text(`$${sum.toFixed(2)}`);
+        }
+
+        $('.shoping-cart-item-close').click(function (e) {
+
+            e.preventDefault();
+
+            let productId = $(e.currentTarget).closest('tr').data('productid');
+            $(e.currentTarget).closest('tr').remove();
+            computeTotalSum();
+
+            //start: basket remove item
+            let arr = [];
+            var storedJson = $.cookie('basket');
+
+            if (storedJson != undefined && typeof storedJson == 'string') {
+                arr = JSON.parse(storedJson);
+            }
+
+            arr = arr.filter(item => item.productId != productId);
+            var jsonStrinfy = JSON.stringify(arr);
+
+            $.cookie('basket', jsonStrinfy, { expires: 60, path: '/' });
+             //end: basket remove item
+
+            showBasketCount();
+        });
+
+        computeTotalSum();
+    </script>
+
+}
+

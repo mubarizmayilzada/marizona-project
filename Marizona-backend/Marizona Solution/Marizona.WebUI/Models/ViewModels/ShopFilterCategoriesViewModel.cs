@@ -9,5 +9,6 @@ namespace Marizona.WebUI.Models.ViewModels
         public ICollection<Category> Categories { get; set; }
         public ICollection<Product> Products { get; set; }
         public ICollection<Product> RecentProducts { get; set; }
+        public ICollection<Blog> RecentBlogs { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model CategoryBlogPostViewModel
 @{
     ViewData["Title"] = "Details";
 }
@@ -19,38 +19,22 @@
             <div class="blog-wrapper">
                 <div class="blog-post">
                     <div class="img">
-                        <img src="~/uploads/images/history_2010.jpg" alt="">
+                        <img src="~/uploads/images/@Model.BlogPost.ImagePath" alt="">
                     </div>
                     <div class="blog-post__body">
-                        <h2 class="blog-post__body__title">
-                            10 Reasons To Do A Digital Detox Challenge
-                        </h2>
-                        <span class="blog-post__body__category">category</span>
-                        <span class="blog-post__body__slash">/</span>
-                        <span class="blog-post__body__time">07.34.2021</span>
-                        <br>
-                        <p class="blog-post__body__description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Voluptates eligendi laudantium culpa veritatis explicabo, quisquam repellat deleniti
-                            error dolorum numquam praesentium, minus tempora, enim magni. Laudantium, a. Sequi, cum tempore.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse assumenda minima est reiciendis at non quibusdam aliquid corporis beatae ut.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, inventore. <br><br>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio ab ratione enim, illo consequatur pariatur!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium cupiditate adipisci alias perferendis necessitatibus?Lorem ipsum d
-                            olor sit amet consectetur adipisicing elit. Maxime necessitatibus, quaerat consequuntur tenetur voluptas sol
-                            it quod velit provident magni a atque vero facilis veritatis, incidunt alias esse vitae libero voluptate totam, laudantium consectetur.
-                        </p>
-                        <h3 class="blog-post__body__sub-title">
-                            <i class="fas fa-quote-right"></i>
-                            Champions keep playing until they get it right. I want my tennis to speak for everything. When you do something best in life, you don’t really want to give that up – and for me it’s tennis.
-                        </h3>
-                        <p class="blog-post__body__sub-description">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            Laudantium non ipsa libero debitis, tempore mollitia ipsum,
-                            aliquam pariatur necessitatibus exercitationem architecto,
-                            sapiente error porro nobis deserunt sit eius? Ullam, deleniti.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, adipisci.
-                        </p>
+                        <div class="blog-post__body">
+                            <h2 class="blog-post__body__title">
+                                10 Reasons To Do A Digital Detox Challenge
+                            </h2>
+                            <span class="blog-post__body__category">category</span>
+                            <span class="blog-post__body__slash">/</span>
+                            <span class="blog-post__body__time">07.34.2021</span>
+                            <br>
+                            @if (Model.BlogPost.Description != null)
+                            {
+                                @Html.Raw(Model.BlogPost.Description)
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +99,7 @@
                 <div class="categories__body">
                     <ul class="categories__body__items">
                         <li class="categories__body__items__item">
-                            <a href="#">
+                            <a asp-controller="shop" asp-action="index">
                                 <div class="item-overview">
 
                                     <img src="~/uploads/images/burger-aside.png" alt="">
@@ -125,12 +109,9 @@
                                     </span>
                                 </div>
                             </a>
-                            <span class="item-count">
-                                (18)
-                            </span>
                         </li>
                         <li class="categories__body__items__item">
-                            <a href="#">
+                            <a asp-controller="shop" asp-action="index">
                                 <div class="item-overview">
 
                                     <img src="~/uploads/images/cocktail-aside.png" alt="">
@@ -140,12 +121,9 @@
                                     </span>
                                 </div>
                             </a>
-                            <span class="item-count">
-                                (9)
-                            </span>
                         </li>
                         <li class="categories__body__items__item">
-                            <a href="#">
+                            <a asp-controller="shop" asp-action="index">
                                 <div class="item-overview">
 
                                     <img src="~/uploads/images/coffee-cup-aside.png" alt="">
@@ -154,12 +132,9 @@
                                     </span>
                                 </div>
                             </a>
-                            <span class="item-count">
-                                (33)
-                            </span>
                         </li>
                         <li class="categories__body__items__item">
-                            <a href="#">
+                            <a asp-controller="shop" asp-action="index">
                                 <div class="item-overview">
 
                                     <img src="~/uploads/images/french-fries-aside.png" alt="">
@@ -168,12 +143,9 @@
                                     </span>
                                 </div>
                             </a>
-                            <span class="item-count">
-                                (12)
-                            </span>
                         </li>
                         <li class="categories__body__items__item">
-                            <a href="#">
+                            <a asp-controller="shop" asp-action="index">
                                 <div class="item-overview">
 
                                     <img src="~/uploads/images/pizza-aside.png" alt="">
@@ -182,9 +154,6 @@
                                     </span>
                                 </div>
                             </a>
-                            <span class="item-count">
-                                (20)
-                            </span>
                         </li>
                     </ul>
                 </div>
@@ -194,34 +163,18 @@
 
             <div class="recent-posts">
                 <span class="category-title">Recent post</span>
-
-                <div class="recent-post">
-                    <img src="~/uploads/images/shaafi-ali-I0IXBZDEAHo-unsplash.jpg" alt="">
-                    <div class="recent-post__description">
-                        <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                        <span class="time">
-                            August 31, 2020
-                        </span>
+                @foreach (var item in Model.RecentBlogs)
+                {
+                    <div class="recent-post">
+                        <img src="~/uploads/images/@item.ImagePath" alt="">
+                        <div class="recent-post__description">
+                            <a class="recent-post-link" asp-controller="blog" asp-action="details" asp-route-id="@item.Id">@item.Title</a>
+                            <span class="time">
+                                @item.CreatedDate.ToString("MM/dd/yyyy")
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="recent-post">
-                    <img src="~/uploads/images/jonathan-borba-8l8Yl2ruUsg-unsplash.jpg" alt="">
-                    <div class="recent-post__description">
-                        <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                        <span class="time">
-                            August 31, 2020
-                        </span>
-                    </div>
-                </div>
-                <div class="recent-post">
-                    <img src="~/uploads/images/paula-vermeulen-URjZkhqsuBk-unsplash.jpg" alt="">
-                    <div class="recent-post__description">
-                        <a href="#">Traditional Soft Pretzels with Sweet Beer Cheese</a>
-                        <span class="time">
-                            August 31, 2020
-                        </span>
-                    </div>
-                </div>
+                }
             </div>
 
             <div class="blog-ad">
@@ -244,3 +197,31 @@
         </div>
     </div>
 </div>
+
+
+@section addcss{
+    <style>
+        .card {
+            position: relative;
+        }
+
+        .product-caption-wrapper {
+            width: 90%;
+            position: absolute;
+            bottom: 25px;
+        }
+
+        .product-caption {
+            width: 100%;
+        }
+
+        .recent-post-link {
+            display: block;
+        }
+
+        .recent-post {
+            justify-content: normal !important;
+        }
+    </style>
+
+}

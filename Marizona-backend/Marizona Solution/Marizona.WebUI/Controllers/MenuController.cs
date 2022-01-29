@@ -1,6 +1,7 @@
 ﻿using Marizona.WebUI.Models.DataContexts;
 using Marizona.WebUI.Models.Entities;
 using Marizona.WebUI.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,6 +10,7 @@ using System.Linq;
 
 namespace Marizona.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class MenuController : Controller
     {
 
