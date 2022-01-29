@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Marizona.WebUI.Models.Entities.Membership;
+using System;
 
 namespace Marizona.WebUI.Models.Entities
 {
@@ -7,8 +8,12 @@ namespace Marizona.WebUI.Models.Entities
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? DeletedDate { get; set; }
-        public DateTime? UpdateDate { get; set; }
-        public int CreatedByUserId { get; set; }
+        public DateTime? UpdateDate { get; set; }   
+
+        public int? CreateByUserId { get; set; }
+
+
+
 
         //public BaseEntity()
         //{

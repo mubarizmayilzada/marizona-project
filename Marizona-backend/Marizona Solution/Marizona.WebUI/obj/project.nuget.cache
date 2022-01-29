@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f1fwqlE/fXHrUs6eYvmTbjtadoPW3+w049iYPKYTDonvNA3mLGrVZsTpcqdMOblTsj4kQukxkZEteQE0z/hBOQ==",
+  "dgSpecHash": "RbNB822dycF6114/M859XtDLhxWUfGX0Ft6tkGJA2uSEloUQ4CRa18M1oD6k8zOTtzftpguXjLZ/xYX1+jTu5Q==",
   "success": true,
-  "projectFilePath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
+  "projectFilePath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",

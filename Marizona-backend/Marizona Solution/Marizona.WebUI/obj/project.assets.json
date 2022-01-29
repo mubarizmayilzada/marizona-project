@@ -7462,11 +7462,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
+      "projectUniqueName": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
       "projectName": "Marizona.WebUI",
-      "projectPath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
+      "projectPath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\Marizona.WebUI.csproj",
       "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\obj\\",
+      "outputPath": "E:\\P317\\Final-Project\\Marizona\\marizona-project\\Marizona-backend\\marizona-project\\Marizona-backend\\Marizona Solution\\Marizona.WebUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
