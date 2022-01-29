@@ -28,7 +28,19 @@
     @RenderSection("addcss", required: false)
 </head>
 <body>
-
+    <style>
+        *::selection {
+            background: rgb(255, 194, 34);
+            color:white;
+        }
+        a.p-2 {
+            color:white;
+            text-decoration:none;
+        }
+        a.p-2:hover {
+            color: orange;
+        }
+    </style>
     <header>
         <nav>
             <input type="checkbox" class="burger-menu">
@@ -79,7 +91,7 @@
                                 <li><a asp-controller="account" asp-action="signin"><img src="~/uploads/icons/user.png" alt="user"></a></li>
                                 <a asp-controller="account" asp-action="Register" class="p-2 pl-0"><span>SING UP</span></a>
                             }
-                            <li><a asp-controller="shop" asp-action="shoppingCard"><img src="~/uploads/icons/shopping-basket.png" alt="basket"></a></li>
+                            @*<li><a asp-controller="shop" asp-action="shoppingCard"><img src="~/uploads/icons/shopping-basket.png" alt="basket"></a></li>*@
                             <li class="other-site"><a href="https://mubarizmayilzada.github.io/Burgerland-frontend/"><img src="~/uploads/icons/cheese-burger.png" alt="basket"></a></li>
                         </ul>
                         <img class="tel" src="~/uploads/icons/telephone.png" alt="">

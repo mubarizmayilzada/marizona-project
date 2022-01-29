@@ -70,11 +70,11 @@ namespace Marizona.WebUI.Controllers
                     foundedUser = await userManager.FindByNameAsync(user.UserName);
                 }
 
-                if (foundedUser == null || !await userManager.IsInRoleAsync(foundedUser, "User"))
-                {
-                    ViewBag.Message = "Your username or password is incorrect!";
-                    return View(user);
-                }
+                //if (foundedUser == null || !await userManager.IsInRoleAsync(foundedUser, "User"))
+                //{
+                //    ViewBag.Message = "Your username or password is incorrect!";
+                //    return View(user);
+                //}
 
                 //if(!await userManager.IsInRoleAsync(foundedUser, "User"))
                 //{

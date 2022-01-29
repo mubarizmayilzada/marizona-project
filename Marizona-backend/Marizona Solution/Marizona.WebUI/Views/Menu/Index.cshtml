@@ -45,13 +45,13 @@
                             <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">
                                 <span>@item.Title</span>
                             </a>
-                            <ul class="product-stars">
+                            @*<ul class="product-stars">
                                 <li class="rate-star"><i class="far fa-star"></i></li>
                                 <li class="rate-star"><i class="far fa-star"></i></li>
                                 <li class="rate-star"><i class="far fa-star"></i></li>
                                 <li class="rate-star"><i class="far fa-star"></i></li>
                                 <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
+                            </ul>*@
                             <p class="short-description">@item.ShortDescription</p>
                             <div class="price-basket">
                                 <div>
@@ -62,149 +62,12 @@
                                         $@item.IsSalePrice
                                     </span>
                                 </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
+                                @*<span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>*@
                             </div>
                         </div>
                     </div>
                 </div>
             }
-
-
-            @*<div class="menu-card-wrap" data-category="burger">
-                    <div class="menu-card">
-                        <img src="~/uploads/images/53-1.png" alt="">
-                        <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-
-                        <div class="menu-card__body">
-                            <a href="#">
-                                <span>BBQ chicken breast</span>
-                            </a>
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <p class="short-description"> A mighty meaty double helping of all the reasons you love our burger.</p>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$18.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-card-wrap" data-category="salat">
-                    <div class="menu-card">
-                        <img src="~/uploads/images/27-1-600x600.png" alt="">
-                        <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-
-                        <div class="menu-card__body">
-                            <a href="#">
-                                <span>BBQ chicken breast</span>
-                            </a>
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <p class="short-description"> A mighty meaty double helping of all the reasons you love our burger.</p>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$18.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-card-wrap" data-category="sushi">
-                    <div class="menu-card">
-                        <img src="~/uploads/images/54.1.png" alt="">
-                        <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-
-                        <div class="menu-card__body">
-                            <a href="#">
-                                <span>BBQ chicken breast</span>
-                            </a>
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <p class="short-description"> A mighty meaty double helping of all the reasons you love our burger.</p>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$18.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-card-wrap" data-category="burger">
-                    <div class="menu-card">
-                        <img src="~/uploads/images/52-1.png" alt="">
-                        <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-
-                        <div class="menu-card__body">
-                            <a href="#">
-                                <span>BBQ chicken breast</span>
-                            </a>
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <p class="short-description"> A mighty meaty double helping of all the reasons you love our burger.</p>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$18.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-card-wrap" data-category="salat">
-                    <div class="menu-card">
-                        <img src="~/uploads/images/5-1.png" alt="">
-                        <span class="icon-wishlist"><i class="fas fa-heart"></i></span>
-
-                        <div class="menu-card__body">
-                            <a href="#">
-                                <span>BBQ chicken breast</span>
-                            </a>
-                            <ul class="product-stars">
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                                <li class="rate-star"><i class="far fa-star"></i></li>
-                            </ul>
-                            <p class="short-description"> A mighty meaty double helping of all the reasons you love our burger.</p>
-                            <div class="price-basket">
-                                <div>
-                                    <span class="main-price is-sale">$18.18</span>
-                                    <span class="price">$12.00</span>
-                                </div>
-                                <span class="basket"><a href="#"><i class="fas fa-shopping-basket"></i></a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
         </div>
     </section>
 </div>
@@ -217,7 +80,7 @@
                 <div>
                     <h2>Explore the new taste</h2>
                     <p>Enjoy our luscious dishes wherever you want</p>
-                    <a href="./contact.html"><button class="btn-hard-md">ORDER NOW</button></a>
+                    <a asp-controller="home" asp-action="contact"><button class="btn-hard-md">ORDER NOW</button></a>
                 </div>
             </div>
         </div>
